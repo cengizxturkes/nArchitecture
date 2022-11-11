@@ -1,19 +1,29 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
-@Html.PartialAsync("~/Views/PartialView/head.cshtml");
+<head>
+   
+    @await Html.PartialAsync("../PartialView/head.cshtml");
+</head>
 
 
 <body>
     <div id="preloader"></div>
     <div id="wrapper">
 
-        @Html.PartialAsync("~/Views/PartialView/header.cshtml");
+        <header>
+            @await Html.PartialAsync("../PartialView/header.cshtml");
+        </header>
 
        @RenderBody();
-        
 
-        @Html.PartialAsync("~/Views/PartialView/footer.cshtml");
+
+     
+        <!-- footer begin -->
+        <footer class="sticky">
+            @await Html.PartialAsync("../PartialView/footer.cshtml");
+
+        </footer>
 
         <!-- footer close -->
     </div>
