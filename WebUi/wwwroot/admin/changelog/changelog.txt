@@ -1,0 +1,159 @@
+
+Project Name: Dayone - Bootstrap 5 Admin & Dashboard Template
+
+Version : V.5
+
+
+Updated-date: 08-JULY-2022
+
+ 
+ Updates :- 
+         
+ 		1) Some CSS folders are removed from css folder and moved to SCSS folder
+                2) Sidemenu folder updated in SCSS
+		3) Few js files  are updated
+		4) New html page added
+		5) UI issues Fixed.
+
+
+*******************************************************************************************************************
+----------------------------------------------------------------------
+1) Some CSS folders are removed from css folder and moved to SCSS folder
+----------------------------------------------------------------------
+  step-1:-  The below scss files are moved to scss folder root--->(assets/scss/layouts)
+
+ 		1) boxed.scss
+ 		2) dark.scss
+		3) skin-modes.scss
+ 		4) transparent-style.scss
+
+  step-2:-   Below links are removed in all html pages at header section
+
+                <link href="../assets/css/boxed.css" rel="stylesheet" />
+		<link href="../assets/css/dark.css" rel="stylesheet" />
+		<link href="../assets/css/skin-modes.css" rel="stylesheet" />
+		<link href="../assets/css/transparent-style.css" rel="stylesheet">
+
+ step-3:-  Please remove Below tasks in gulp file 
+
+		//_______task for Dark
+		//_______task for Transparent
+		//_______task for Boxed
+		//_______task for Skin-modes
+
+
+----------------------------------------------------------------------
+ 2) Sidemenu folder updated in SCSS
+----------------------------------------------------------------------
+    sidemenu folder updated in SCSS root--->(assets/scss/sidemenu)
+
+  The below scss files are merged with default-menu.scss
+
+	1) closed.scss
+ 	2) hover-submenu.scss
+	3) hover-submenu1.scss
+ 	4) icon-text.scss
+
+----------------------------------------------------------------------
+3) Few js files are updated
+----------------------------------------------------------------------
+  Please Custom.js, Custom-1.js,  themeColors.js and sidemenu.js  are updated
+
+           Custom.js ---> (assets/js/Custom.js)
+
+           Custom-1.js ---> (assets/js/Custom-1.js)
+
+           themeColors.js ---> (assets/js/themeColors.js)
+
+           sidemenu.js ---> (assets/plugins/sidemenu/sidemenu.js)
+
+ -->  Add class "login-img" in below html pages in body tag  	
+
+         ---> 400.html
+         ---> 401.html
+         ---> 403.html
+         ---> 404.html
+         ---> 500.html
+         ---> 503.html
+         ---> coming.html
+         ---> construction.html
+         ---> forgot-password-1.html
+         ---> forgot-password-2.html
+         ---> forgot-password-3.html
+         ---> lockscreen-1.html
+         ---> lockscreen-2.html
+         ---> lockscreen-3.html
+         ---> login-1.html
+         ---> login-2.html
+         ---> login-3.html
+         ---> message-danger.html
+         ---> message-success.html
+         ---> message-warning.html
+         ---> register-1.html
+         ---> register-2.html
+         ---> register-3.html
+         ---> reset-password-1.html
+         ---> reset-password-2.html
+         ---> reset-password-3.html
+
+-----------------------------------
+4) New html page is added
+-----------------------------------
+
+     Ribbons.html page is addad  
+
+-----------------------------------
+5) Fixed  UI  issues
+-----------------------------------
+
+	Minor ui issues fixed to resolve them please replace below css and scss files.
+
+		Please replace below files in scss folder
+
+		1. _custom-styles.scss            root---->(assets/scss/custom/_custom-styles.scss)
+		1. _sidemenu.scss                 root---->(assets/scss/sidemenu/_default-menu.scss)
+		2. _rtl.scss     		  root---->(assets/scss/layouts/_rtl.scss)
+
+
+  NOTE:-If you are using scss files then please run gulp commands after changing the files as directed in documentation. 
+        If you need to know more about gulp please go through gulp tutorials.
+        If you are using css file no need to run the gulp.
+
+
+Thanking you,
+@spruko.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
