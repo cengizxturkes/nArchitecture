@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+@Html.PartialAsync("~/Views/PartialView/head.cshtml");
+
+
+<body>
+    <div id="preloader"></div>
+    <div id="wrapper">
+
+        @Html.PartialAsync("~/Views/PartialView/header.cshtml");
+
+       @RenderBody();
+        
+
+        @Html.PartialAsync("~/Views/PartialView/footer.cshtml");
+
+        <!-- footer close -->
+    </div>
+
+    <!-- LOAD JS FILES -->
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/jquery.min.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/bootstrap.min.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/jquery.isotope.min.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/easing.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/jquery.ui.totop.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/selectnav.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/ender.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/owl.carousel.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/jquery.fitvids.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/jquery.plugin.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/wow.min.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/tweecool.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/jquery.stellar.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/typed.js"></script>
+
+    <!-- theme custom and plugin settings -->
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/custom.js"></script>
+    <script src="~/GoCargo/GoCargoRecharge&GoCargoExpress/js/custom-tweecool.js"></script>
+</body>
+</html>

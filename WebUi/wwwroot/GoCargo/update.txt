@@ -1,0 +1,11 @@
+GoCargo v1.5 (Apr 10, 2017)
+- new added GoCargo Express onepage
+
+GoCargo v1.4 (Apr 20, 2016)
+- new added GoCargo Recharge version
+
+GoCargo v1.3 (Dec 18, 2015)
+- new added homepage alternative
+
+GoCargo v1.2 (Nov 30, 2015)
+- new added extended version

@@ -1,0 +1,204 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>Template Documentation Template</title>
+    <!-- Framework CSS -->
+    <link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+    <link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+    <style type="text/css" media="screen">
+        p, table, hr, .box {
+            margin-bottom: 25px;
+        }
+
+            .box p {
+                margin-bottom: 10px;
+            }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        hr {
+            height: 1px;
+            margin: 40px 0 40px 0;
+        }
+
+        pre {
+            display: block;
+            font: normal 12px/22px Monaco,Monospace !important;
+            color: #333;
+            background-color: #f2f2f2;
+            background-image: -webkit-repeating-linear-gradient(top, #e5e5e5 0px, #e5e5e5 22px, #f2f2f2 22px, #f2f2f2 44px);
+            background-image: -moz-repeating-linear-gradient(top, #e5e5e5 0px, #e5e5e5 22px, #f2f2f2 22px, #f2f2f2 44px);
+            background-image: -ms-repeating-linear-gradient(top, #e5e5e5 0px, #e5e5e5 22px, #f2f2f2 22px, #f2f2f2 44px);
+            background-image: -o-repeating-linear-gradient(top, #e5e5e5 0px, #e5e5e5 22px, #f2f2f2 22px, #f2f2f2 44px);
+            background-image: repeating-linear-gradient(top, #e5e5e5 0px, #e5e5e5 22px, #f2f2f2 22px, #f2f2f2 44px);
+            padding: 0em 1em;
+            overflow: auto;
+            border: solid 1px #ccc;
+        }
+
+            pre strong {
+                color: #3A66FF;
+            }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+
+        <h3 class="center alt">Documentation by &ldquo;ExoTheme&quot;</h3>
+
+        <hr>
+
+        <h1 class="center filename">&ldquo;GoCargo&rdquo;</h1>
+
+        <div class="borderTop">
+            <div class="span-6 colborder info prepend-1">
+                <p class="prepend-top">
+                    <strong>Last Update: 21 April, 2015<br>
+                        By: ExoTheme<br>
+                        <br>
+                        <br>
+                    </strong>
+                </p>
+            </div>
+            <!-- end div .span-6 -->
+
+            <div class="span-12 last">
+                <p class="prepend-top append-0">Thank you for purchasing our theme. If you have any questions that are beyond the scope of this help file, please feel free to ask us on comments area<a href="http://themeforest.net/user/ExoTheme"></a>. Thanks so much!</p>
+            </div>
+        </div>
+        <!-- end div .borderTop -->
+
+        <hr>
+
+        <h2 id="toc" class="alt">Table of Contents</h2>
+        <ul>
+            <li><a href="#A">HTML  Structure</a></li>
+            <li><a href="#B">CSS</a></li>
+            <li><a href="#C">Setting Contact Form</a></li>
+            <li><a href="#javascript">JavaScript</a>
+              <ul>
+                <li><a href="#js-files">List of JavaScript Files</a></li>
+                <li><a href="#setting-instafeed">Setting Instafeed (to show Instagram photo)</a></li>
+                <li><a href="setting-tweecool">Setting TweeCool  (to show Twitter)</a></li>
+              </ul>
+            </li>
+        </ul>
+
+<hr>
+
+        <h3 id="A">HTML structure - <a href="#toc">top</a></h3>
+        <p>This template build using Bootstrap framework version 3. All the information within main content is nested within a div with id-  name "<strong>content</strong>&quot;.  If you need  more information you can read Bootstrap documentation <a href="http://getbootstrap.com/">on this link</a></p>
+        <p>&nbsp;</p>
+        <h5>1. Sample html structure for content</h5>
+        <pre>
+&lt;div id=&quot;<strong>content</strong>&quot;&gt;
+	&lt;div class=&quot;<strong>container</strong>&quot;&gt;
+		&lt;div class=&quot;<strong>row</strong>&quot;&gt;
+			&lt;div class=&quot;<strong>col-md-4</strong>&quot;&gt;
+				this is your content			
+			&lt;/div&gt;
+			&lt;div class=&quot;<strong>col-md-8</strong>&quot;&gt;<strong>
+				</strong>this is your content
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+        <p>
+            &nbsp;
+            <h5>2. You can create column from 12 predefined grid size, then insert your content inside.</h5>
+            <pre>
+&lt;div class=&quot;row&quot;&gt;<br>  	&lt;div class=&quot;<strong>col-md-1</strong>&quot;&gt;your content&lt;/div&gt;<br>	&lt;div class=&quot;<strong>col-md-2</strong>&quot;&gt;your content&lt;/div&gt;<br>	&lt;div class=&quot;<strong>col-md-3</strong>&quot;&gt;your content&lt;/div&gt;<br>	&lt;div class=&quot;<strong>col-md-4</strong>&quot;&gt;your content&lt;/div&gt;
+	&lt;div class=&quot;<strong>col-md-5</strong>&quot;&gt;your content&lt;/div&gt;<br>	&lt;div class=&quot;<strong>col-md-6</strong>&quot;&gt;your content&lt;/div&gt;
+	&lt;div class=&quot;<strong>col-md-7</strong>&quot;&gt;your content&lt;/div&gt;<br>	&lt;div class=&quot;<strong>col-md-8</strong>&quot;&gt;your content&lt;/div&gt;
+	&lt;div class=&quot;<strong>col-md-9</strong>&quot;&gt;your content&lt;/div&gt;<br>	&lt;div class=&quot;<strong>col-md-10</strong>&quot;&gt;your content&lt;/div&gt;
+	&lt;div class=&quot;<strong>col-md-11</strong>&quot;&gt;your content&lt;/div&gt;
+	&lt;div class=&quot;<strong>col-md-12</strong>&quot;&gt;your content&lt;/div&gt;<br>&lt;/div&gt;</pre>
+            <hr />
+            <h3 id="B">CSS - <a href="#toc">top</a></h3>
+            <p>All css files within this template is loaded by single file<strong> main.css.</strong> To modify template design and typography, you can edit files below:</p>
+        <p>&nbsp;</p>
+        <p><strong>@import url(&quot;style.css&quot;);</strong> main css for this template, if you want to adjust template design you can edit this file</p>
+        <p><strong>@import url(&quot;rev-settings.css&quot;);</strong> custom css file for Revolution Slider plugin, you can modify slider typography from this file</p>
+        <p>&nbsp;</p>
+        <p>Here is another css files used on this template (It's required to not modify files below).</p>
+        <p>&nbsp;</p>
+        <p>
+            <strong>@import url(&quot;import-font.css&quot;);</strong> used to load font from external source like Google font
+            <br>
+            <strong>@import url(&quot;../fonts/font-awesome/css/font-awesome.css&quot;);</strong> used to load font awesome icons<br>
+            <strong>@import url(&quot;../fonts/et-line-font/style.css&quot;);</strong> css from font awesome used to load font awesome icons<br>
+            <strong>@import url(&quot;../rs-plugin/css/settings.css&quot;);</strong> css file for Revolution Slider plugin<br>
+            <strong>@import url(&quot;owl.carousel.css&quot;);</strong> css for jQuery plugin &quot;Owl Carousel&quot;<br>
+            <strong>@import url(&quot;owl.theme.css&quot;);</strong> css for jQuery plugin &quot;Owl Carousel&quot;<br>
+            <strong>@import url(&quot;animate.css&quot;);</strong> css for animating template elements<br>
+            <strong>@import url(&quot;magnific-popup.css&quot;);</strong> css for jQuery plugin &quot;Magnific Popup&quot;
+        </p>
+        <p>&nbsp;</p>
+        <p>For HTML extended version, there is two more css files below:</p>
+        <p>&nbsp;</p>
+        <p><strong>@import url(&quot;custom.css&quot;);</strong> custom css file for current template<br>
+          <strong>@import url(&quot;color/blue.css&quot;);</strong>  color settings file for current template<br>
+        </p>
+<p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <hr>
+        <h3 id="C">Setting Contact Page- <a href="#toc">top</a></h3>
+        <p>Open &gt; <strong>Send.php</strong>. Change<strong> $email_to</strong> value with your email..</p>
+        <p>
+            <img src="assets/send-php.jpg"></p>
+        <hr>
+
+        <h3 id="javascript">Javascript Files - <a href="#toc">top</a></h3>
+        <h4 id="js-files">List of Javascript Files</h4>
+        <ul>
+  <li><strong>jquery.min.js</strong> - http://docs.jquery.com/Downloading_jQuery</li>
+            <li><strong>owl.carousel.js</strong> - used for create carousel<br>
+                <strong>Url</strong>: http://owlgraphic.com/</li>
+            <li><strong>jquery.isotope.min.js</strong> - used in gallery page<br>
+                <strong>Url</strong>: http://isotope.metafizzy.co/</li>
+            <li><strong>jquery.magnific-popup.min</strong> - used for open popup image, video, maps<br>
+                <strong>Url</strong>:  http://dimsemenov.com/plugins/magnific-popup/</li>
+            <li><strong>easing.js</strong> - http://archive.plugins.jquery.com/project/Easing</li>
+            <li><strong>jquery.ui.totop.js</strong> - used for scroll to top<br>
+                <strong>Url</strong>: http://www.mattvarone.com/web-design/uitotop-jquery-plugin/</li>
+        </ul>
+        <h4 id="setting-instafeed">Setting Instafeed (to show Instagram photo)</h4>
+        <ul>
+          <li>Open file name <strong>custom-instafeed.js</strong> in folder js</li>
+          <li>The only thing you'll need to get going is a valid <strong>client id</strong> from Instagram's API. You can easily register for one on <a href="http://instagram.com/developer/register/" target="_blank">Instagram's website</a>.</li>
+          <li>Replace userID and clientID<br>userId - Unique id of a user to get. Use with <strong>get: 'user'</strong>.<br>
+           clientId - <strong>Required</strong>. Your API client id from Instagram. 
+          </li>
+          <li>For more documentation read here <a href="http://instafeedjs.com/">http://instafeedjs.com</a></li>
+        </ul>
+      <h4 id="setting-tweecool">Setting Tweecool (to show Twitter)</h4>
+        <ul>
+          <li>Open file name <strong>custom-tweecool.js</strong> in folder js</li>
+          <li>Replace username and limit<br>
+            username - Your username<br>
+            limit - Number of tweets to show<br>
+          </li>
+          <li>For more documentation read here <a href="http://www.tweecool.com/">http://www.tweecool.com</a></li>
+        </ul>
+        <p>&nbsp;</p>
+<hr>
+
+        <h3 id="E">&nbsp;</h3>
+        <p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p>
+
+        <p class="append-bottom alt large"><strong>ExoTheme</strong></p>
+        <p><a href="#toc">Go To Table of Contents</a></p>
+
+        <hr class="space">
+    </div>
+    <!-- end div .container -->
+</body>
+</html>
