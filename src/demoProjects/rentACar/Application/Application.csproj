@@ -7,9 +7,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Folder Include="Features\Admins\Commands\" />
-		<Folder Include="Features\Admins\Dtos\" />
-		<Folder Include="Features\Admins\Rules\" />
 		<Folder Include="Features\Brands\Constants\" />
 		<Folder Include="Features\Customers\Rules\" />
 		<Folder Include="Features\Models\Commands\" />

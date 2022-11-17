@@ -24,7 +24,6 @@ namespace Persistence
             services.AddScoped<IBrandRepository, BrandRepository>();
             services.AddScoped<IModelRepository, ModelRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IAdminRepository, AdminRepository>();
 
             services.AddScoped<ICustomerRepository,CustomerRepository>();
             services.AddScoped<IProductRepository,  ProductRepository>();
