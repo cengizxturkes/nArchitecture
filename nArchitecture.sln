@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "src\demoProj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "src\demoProjects\rentACar\WebAPI\WebAPI.csproj", "{B3A9582B-1FEA-4055-984E-829D05248B11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUi", "WebUi\WebUi.csproj", "{3DB627A8-AFE6-4560-873A-79FBFE466EE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUi", "WebUi\WebUi.csproj", "{3DB627A8-AFE6-4560-873A-79FBFE466EE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

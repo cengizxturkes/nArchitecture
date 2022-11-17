@@ -22,6 +22,7 @@ namespace Persistence.Contexts
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Admin> Admins { get; set; }
 
 
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
@@ -32,8 +33,8 @@ namespace Persistence.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //if (!optionsBuilder.IsConfigured)
-            //    base.OnConfiguring(
-            //        optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SomeConnectionString")));
+                //base.OnConfiguring(
+                    //optionsBuilder.UseSqlServer(Configuration.GetConnectionString("Data Source=DESKTOP-0NUA80M\\SQLEXPRESS;Initial Catalog=VeluceApp;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

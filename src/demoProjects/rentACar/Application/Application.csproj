@@ -7,6 +7,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Folder Include="Features\Admins\Commands\" />
+		<Folder Include="Features\Admins\Dtos\" />
+		<Folder Include="Features\Admins\Rules\" />
 		<Folder Include="Features\Brands\Constants\" />
 		<Folder Include="Features\Customers\Rules\" />
 		<Folder Include="Features\Models\Commands\" />
@@ -19,6 +22,7 @@
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.2.1" />
 		<PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
 		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
 		<PackageReference Include="RestSharp" Version="106.6.10" />
 	</ItemGroup>
 

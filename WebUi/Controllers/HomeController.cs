@@ -17,7 +17,10 @@ namespace WebUi.Controllers
         {
             return View();
         }
-
+        public IActionResult about()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
