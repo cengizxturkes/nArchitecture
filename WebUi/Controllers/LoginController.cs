@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Persistence.Contexts;
@@ -10,13 +11,13 @@ namespace WebUi.Controllers
 {
     public class LoginController : BaseController
     {
-        
-      
+
         public IActionResult Index()
         {
             return View();
         }
         [HttpPost]
+        
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
@@ -26,10 +27,10 @@ namespace WebUi.Controllers
                 //var body =await response.Content.ReadFromJsonAsync<LoginResponse>();
                 var body=await response.Content.ReadAsStringAsync();
                 LoginResponse loginResponse=JsonConvert.DeserializeObject<LoginResponse>(body);
-                return RedirectToAction("Login", "Login");
+                return RedirectToAction("Index", "Dashboard");
             }
             return View("Index",loginViewModel);
-
+          
         }
 
         public IActionResult Login()

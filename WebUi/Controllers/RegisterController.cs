@@ -12,7 +12,7 @@ namespace WebUi.Controllers
         {
             return View();
         }
-       [HttpPost]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(LoginViewModel loginViewModel)
         {

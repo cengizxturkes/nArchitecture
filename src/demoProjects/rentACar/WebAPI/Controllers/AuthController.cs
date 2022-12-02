@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
             RegisterCommand registerCommand = new()
             {
                 UserForRegisterDto = userForRegisterDto,
-                IpAddress = GetIpAddress()??""
+                IpAddress = GetIpAddress() ?? ""
             };
 
             LoginDto result = await Mediator.Send(registerCommand);
