@@ -17,10 +17,12 @@ namespace WebUi.Controllers
 
     public class DashboardController : Controller
     {
-       
+        [Authorize]
 
         public IActionResult Index(LoginViewModel loginViewModel)
         {
+            var usermail = User.Identity.Name;
+            ViewBag.v = usermail;
             return View();
 
 

@@ -145,30 +145,6 @@ namespace Persistence.Migrations
                     b.ToTable("UserOperationClaims");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Admin", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("AdminId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("AdminName")
-                        .IsRequired()
-                        .HasColumnType("Varchar(20)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("Varchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Admins");
-                });
-
             modelBuilder.Entity("Domain.Entities.Customer", b =>
                 {
                     b.Property<int>("Id")
