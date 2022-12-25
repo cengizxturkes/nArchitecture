@@ -1,4 +1,5 @@
-﻿
+﻿@using Domain.Entities;
+@model List<Order>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
@@ -117,7 +118,24 @@
 										ENVANTERLERİM
 									</h3>
 								</div>
-							</div> <br data-v-0d352060=""> <!----> <div data-v-0d352060="" class="row"><br data-v-0d352060=""></div> <div data-v-0d352060=""><div class="table-responsive" data-v-0d352060=""><table role="table" aria-busy="false" aria-colcount="10" class="table b-table table-striped" id="__BVID__179"><!----><!----><thead role="rowgroup" class=""><!----><tr role="row" class=""><th role="columnheader" scope="col" aria-colindex="1" class=""><div>#</div></th><th role="columnheader" scope="col" aria-colindex="2" class=""><div>Asin</div></th><th role="columnheader" scope="col" aria-colindex="3" class=""><div>Product Name</div></th><th role="columnheader" scope="col" aria-colindex="4" class=""><div>Location</div></th><th role="columnheader" scope="col" aria-colindex="5" class=""><div>Daily Storage Fee</div></th><th role="columnheader" scope="col" aria-colindex="6" class=""><div>Price</div></th><th role="columnheader" scope="col" aria-colindex="7" class=""><div>A Weight</div></th><th role="columnheader" scope="col" aria-colindex="8" class=""><div>D Weight</div></th><th role="columnheader" scope="col" aria-colindex="9" class=""><div>In Stock</div></th><th role="columnheader" scope="col" aria-colindex="10" class=""><div>Actions</div></th></tr></thead><tbody role="rowgroup"><!----><tr role="row" class=""><td aria-colindex="1" role="cell" class=""><div class="vs-checkbox-con custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" value="22957" id="__BVID__198"><label class="custom-control-label" for="__BVID__198"></label></div></td><td aria-colindex="2" role="cell" class="">B00AR91EV8</td><td aria-colindex="3" role="cell" class="">Bayrak direği</td><td aria-colindex="4" role="cell" class=""></td><td aria-colindex="5" role="cell" class="">$0.00</td><td aria-colindex="6" role="cell" class="">$2</td><td aria-colindex="7" role="cell" class="">70 lbs</td><td aria-colindex="8" role="cell" class="">0.07 lbs</td><td aria-colindex="9" role="cell" class="">0</td><td aria-colindex="10" role="cell" class=""></td></tr><!----><!----></tbody><!----></table></div></div> <div data-v-0d352060="" id="8" class="card-code collapse" style="display: none;"><div data-v-0d352060="" class="p-1"></div> <pre data-v-0d352060="" class=" language-markup"><code data-v-0d352060="" class=" language-markup"></code></pre></div>
+
+							</div> <br data-v-0d352060=""> <!----> <div data-v-0d352060="" class="row"><br data-v-0d352060=""></div> <div data-v-0d352060=""><div class="table-responsive" data-v-0d352060=""><table role="table" aria-busy="false" aria-colcount="10" class="table b-table table-striped" id="__BVID__179"><!----><!----><thead role="rowgroup" class=""><!----><tr role="row" class=""><th role="columnheader" scope="col" aria-colindex="1" class=""><div>#</div></th><th role="columnheader" scope="col" aria-colindex="2" class=""><div>Asin</div></th><th role="columnheader" scope="col" aria-colindex="3" class=""><div>Product Name</div></th><th role="columnheader" scope="col" aria-colindex="4" class=""><div>Location</div></th><th role="columnheader" scope="col" aria-colindex="5" class=""><div>Daily Storage Fee</div></th><th role="columnheader" scope="col" aria-colindex="6" class=""><div>Price</div></th><th role="columnheader" scope="col" aria-colindex="7" class=""><div>A Weight</div></th><th role="columnheader" scope="col" aria-colindex="8" class=""><div>D Weight</div></th><th role="columnheader" scope="col" aria-colindex="9" class=""><div>In Stock</div></th><th role="columnheader" scope="col" aria-colindex="10" class=""><div>Actions</div></th></tr></thead><tbody role="rowgroup"><!----><tr role="row" class=""><td aria-colindex="1" role="cell" class=""><div class="vs-checkbox-con custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" value="22957" id="__BVID__198"><label class="custom-control-label" for="__BVID__198"></label></div></td>
+												@foreach(var item in Model)
+												{
+												<tr><td aria-colindex="2" role="cell" class="">B00AR91EV8</td>
+							<td aria-colindex="3" role="cell" class="">@item.OrderName</td>
+							<td aria-colindex="4" role="cell" class=""></td>
+							<td aria-colindex="5" role="cell" class="">$0.00</td>
+							<td aria-colindex="6" role="cell" class="">@item.TotalPrice</td>
+							<td aria-colindex="7" role="cell" class="">70 lbs</td>
+							<td aria-colindex="8" role="cell" class="">0.07 lbs</td>
+							<td aria-colindex="9" role="cell" class="">0</td>
+												<td aria-colindex="10" role="cell" class=""></td>
+											</tr>	
+												}
+												
+						</tr><!----><!----></tbody><!----></table></div></div> 
+						<div data-v-0d352060="" id="8" class="card-code collapse" style="display: none;"><div data-v-0d352060="" class="p-1"></div> <pre data-v-0d352060="" class=" language-markup"><code data-v-0d352060="" class=" language-markup"></code></pre></div>
 						</div><!----><!---->
 					</div> <div class="row">
 						<div class="col-6" style="text-align: left;">
