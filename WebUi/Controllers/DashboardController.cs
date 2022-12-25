@@ -16,12 +16,22 @@ namespace WebUi.Controllers
 {
 
     public class DashboardController : Controller
-    {
+    { private readonly BaseDbContext _context;
+        public DashboardController(BaseDbContext context)
+        {
+            _context = context;
+        }
         [Authorize]
 
         public IActionResult Index(LoginViewModel loginViewModel)
         {
+           
             var usermail = User.Identity.Name;
+
+                var userId = _context.Users.Where(x => x.Email == usermail).Select(y => y.FirstName).FirstOrDefault();
+            var userLastName= _context.Users.Where(x => x.Email == usermail).Select(y => y.LastName).FirstOrDefault();
+            ViewBag.LastName = userLastName;
+            ViewBag.name = userId;
             ViewBag.v = usermail;
             return View();
 

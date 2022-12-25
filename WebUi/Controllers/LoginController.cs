@@ -10,6 +10,7 @@ using System.Security.Claims;
 using System.Text.Json.Serialization;
 using WebUi.Models.AuthControllerModel;
 using WebUi.Models.TokenModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebUi.Controllers
 {
@@ -25,6 +26,7 @@ namespace WebUi.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
+
             var response = await _client.PostAsJsonAsync("Auth/Login",loginViewModel);
             if (response.IsSuccessStatusCode)
             {
@@ -50,7 +52,6 @@ namespace WebUi.Controllers
                 CookieAuthenticationDefaults.AuthenticationScheme,
                 new ClaimsPrincipal(claimsIdentity),
                 authProperties);
-
 
                 return RedirectToAction("Index", "Dashboard");
             }

@@ -1,4 +1,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Persistence.Contexts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +16,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     }
 
 );
+builder.Services.AddDbContext<BaseDbContext>(options =>
+   options.UseSqlServer(builder.Configuration.GetConnectionString("RentACarCampConnectionString")));
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
