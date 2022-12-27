@@ -1,8 +1,8 @@
 ﻿@using Domain.Entities;
-@model List<Order>
+@model WebUi.Models.InventoryControllerModel.InventoryAddViewModel
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 
 
@@ -90,27 +90,58 @@
 								</div>
 							</div> <div data-v-0d352060="" id="9" class="card-code collapse" style="display: none;"><div data-v-0d352060="" class="p-1"></div> <pre data-v-0d352060="" class=" language-markup"><code data-v-0d352060="" class=" language-markup"></code></pre></div>
 						</div><!----><!---->
-					</div> <div data-v-0d352060="" class="card">
+					</div> <form data-v-0d352060="" class="card" asp-controller="Inventory" asp-action="InventoryProduct">
 						<!----><!----><div data-v-0d352060="" class="card-header"><div data-v-0d352060=""><h4 data-v-0d352060="" class="card-title"></h4> <!----></div> <i data-v-0d352060="" aria-expanded="true" aria-controls="9" class="code-toggler feather icon-code cursor-pointer"></i></div> <div data-v-0d352060="" class="card-body">
 							<!----><!----><h3 data-v-0d352060="" style="text-align: center; font-size: 20px; bottom: 30px;">
 								ENVANTERİNİZE YENİ ÜRÜN EKLEYİN
 							</h3> <br data-v-0d352060=""> <div data-v-0d352060="" class="row">
 								<div data-v-0d352060="" class="col-md-10">
-									<div data-v-0d352060="" class="row nomobile" style="text-align: center;"><div data-v-0d352060="" class="col-md-3"></div> <div data-v-0d352060="" class="col-md-4"><div data-v-0d352060="" class="row"><div data-v-0d352060="" class="col-md-1"></div> <div data-v-0d352060="" class="col-md-5">Fiyat</div> <div data-v-0d352060="" class="col-md-5">Ağırlık</div> <div data-v-0d352060="" class="col-md-1"></div></div></div> <div data-v-0d352060="" class="col-md-3">Ölçüler</div> <div data-v-0d352060="" class="col-md-2">D.Ağırlık</div></div> <div data-v-0d352060="" class="row" style="padding-top: 20px; text-align: center;">
+									<div data-v-0d352060="" class="row nomobile" style="text-align: center;"><div data-v-0d352060="" class="col-md-3">
+
+									</div> <div data-v-0d352060="" class="col-md-4"><div data-v-0d352060="" class="row"><div data-v-0d352060="" class="col-md-1"></div>
+									<div data-v-0d352060="" class="col-md-5">Fiyat</div>
+									<div data-v-0d352060="" class="col-md-5">Ağırlık</div>
+									<div data-v-0d352060="" class="col-md-1"></div></div></div> <div data-v-0d352060="" class="col-md-3">Ölçüler</div>
+									<div data-v-0d352060="" class="col-md-2">D.Ağırlık</div></div> <div data-v-0d352060="" class="row" style="padding-top: 20px; text-align: center;">
 										<div data-v-0d352060="" class="col-md-3">
 											<div data-v-0d352060="" role="group" class="input-group mb-2">
-												<!----><input id="v-search-inventory" type="text" placeholder="ASIN No" class="form-control" data-v-0d352060=""> <div data-v-0d352060="" class="input-group-append">
+												
+												<!----><input asp-for="AsinCode" type="text" placeholder="ASIN No" class="form-control" data-v-0d352060="">
+												<div data-v-0d352060="" class="input-group-append">
 													<button data-v-0d352060="" type="button" class="btn btn-secondary bg-lighten-2">
 														Search on &nbsp;<img data-v-0d352060="" height="13px" src="https://www.peninsulafamilyservice.org/wp-content/uploads/2019/08/amazon-logo-transparent.png" class="rounded float-right">
 													</button>
 												</div><!---->
 											</div>
-										</div> <div data-v-0d352060="" class="col-md-4"><div data-v-0d352060="" class="row"><div data-v-0d352060="" class="col-md-1"></div> <div data-v-0d352060="" class="col-md-5"><input id="v-price" type="text" placeholder="0.00" readonly="readonly" class="mb-2 form-control" data-v-0d352060="" style="text-align: center;"></div> <div data-v-0d352060="" class="col-md-5"><input id="v-weight" type="text" placeholder="0.0" readonly="readonly" class="mb-2 form-control" data-v-0d352060="" style="text-align: center;"></div> <div data-v-0d352060="" class="col-md-1"></div></div></div> <div data-v-0d352060="" class="col-md-3"><div data-v-0d352060="" class="row"><div data-v-0d352060="" class="col-md-1"></div> <div data-v-0d352060="" class="col-md-10"><div data-v-0d352060="" class="row"><div data-v-0d352060="" class="col-md-4"><input id="v-width" type="text" placeholder="0.0" readonly="readonly" class="mb-2 form-control" data-v-0d352060="" style="text-align: center;"></div> <div data-v-0d352060="" class="col-md-4"><input id="v-height" type="text" placeholder="0.0" readonly="readonly" class="mb-2 form-control" data-v-0d352060="" style="text-align: center;"></div> <div data-v-0d352060="" class="col-md-4"><input id="v-length" type="text" placeholder="0.0" readonly="readonly" class="mb-2 form-control" data-v-0d352060="" style="text-align: center;"></div></div></div> <div data-v-0d352060="" class="col-md-1"></div></div></div> <div data-v-0d352060="" class="col-md-2"><div data-v-0d352060="" class="row"><div data-v-0d352060="" class="col-md-1"></div> <div data-v-0d352060="" class="col-md-10"><input id="v-desi" type="text" disabled="disabled" placeholder="0.0" readonly="readonly" class="mb-2 form-control" data-v-0d352060="" style="text-align: center;"></div> <div data-v-0d352060="" class="col-md-1"></div></div></div>
-									</div> <div data-v-0d352060="" class="row" style="padding-top: 20px;"><div data-v-0d352060="" class="col-md-12"><input id="v-product-title" type="text" placeholder="Ürün İsmi" readonly="readonly" class="mb-2 form-control" data-v-0d352060=""></div></div>
-								</div> <div data-v-0d352060="" class="col-md-2" style="padding-top: 70px;"><button data-v-0d352060="" type="button" class="btn btn-success btn-block">Envantere Ekle<svg data-v-0d352060="" xmlns="http://www.w3.org/2000/svg" width="14px" height="14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-corner-right-down"><polyline data-v-0d352060="" points="10 15 15 20 20 15"></polyline><path data-v-0d352060="" d="M4 4h7a4 4 0 0 1 4 4v12"></path></svg></button></div>
+										</div> <div data-v-0d352060="" class="col-md-4"><div data-v-0d352060="" class="row"><div data-v-0d352060="" class="col-md-1"></div> 
+										<div data-v-0d352060="" class="col-md-5">
+											
+											<input asp-for="TotalPrice" type="text" placeholder="0.00" class="mb-2 form-control"  style="text-align: center;"></div>
+											<div data-v-0d352060="" class="col-md-5">
+												<input asp-for="Weight" type="text" placeholder="0.0"  class="mb-2 form-control" data-v-0d352060="" style="text-align: center;"></div>
+											<div data-v-0d352060="" class="col-md-1"></div></div>
+										</div> <div data-v-0d352060="" class="col-md-3"><div data-v-0d352060="" class="row">
+												<div data-v-0d352060="" class="col-md-1"></div>
+												<div data-v-0d352060="" class="col-md-10"><div data-v-0d352060="" class="row">
+													<div data-v-0d352060="" class="col-md-4">
+														<input asp-for="Width"  type="text" placeholder="0.0" class="mb-2 form-control"  style="text-align: center;"></div>
+														<div data-v-0d352060="" class="col-md-4">
+															<input asp-for="Height" type="text" placeholder="0.0"  class="mb-2 form-control" data-v-0d352060="" style="text-align: center;"></div>
+														<div data-v-0d352060="" class="col-md-4">
+															<input asp-for="Length" type="text" placeholder="0.0"  class="mb-2 form-control" data-v-0d352060="" style="text-align: center;">
+														</div>
+													</div>
+												</div>
+												<div data-v-0d352060="" class="col-md-1"></div></div></div>
+														<div data-v-0d352060="" class="col-md-2"><div data-v-0d352060="" class="row">
+															<div data-v-0d352060="" class="col-md-1"></div> <div data-v-0d352060="" class="col-md-10">
+																<input asp-for="Desi" id="v-desi" type="text" placeholder="0.0"  class="mb-2 form-control" data-v-0d352060="" style="text-align: center;"></div> <div data-v-0d352060="" class="col-md-1"></div></div></div>
+									</div> <div data-v-0d352060="" class="row" style="padding-top: 20px;"><div data-v-0d352060="" class="col-md-12">
+										<input asp-for="OrderName" id="v-product-title" type="text" placeholder="Ürün İsmi"  class="mb-2 form-control" data-v-0d352060=""></div></div>
+								</div> <div data-v-0d352060="" class="col-md-2" style="padding-top: 70px;"><button data-v-0d352060="" type="submit" class="btn btn-success btn-block">Envantere Ekle<svg data-v-0d352060="" xmlns="http://www.w3.org/2000/svg" width="14px" height="14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-corner-right-down"><polyline data-v-0d352060="" points="10 15 15 20 20 15"></polyline><path data-v-0d352060="" d="M4 4h7a4 4 0 0 1 4 4v12"></path></svg></button></div>
 							</div> <div data-v-0d352060="" id="9" class="card-code collapse" style="display: none;"><div data-v-0d352060="" class="p-1"></div> <pre data-v-0d352060="" class=" language-markup"><code data-v-0d352060="" class=" language-markup"></code></pre></div>
 						</div><!----><!---->
-					</div> <div data-v-0d352060="" class="card">
+					</form> <div data-v-0d352060="" class="card">
 						<!----><!----><div data-v-0d352060="" class="card-header"><div data-v-0d352060=""><h4 data-v-0d352060="" class="card-title"></h4> <!----></div> <i data-v-0d352060="" aria-expanded="true" aria-controls="8" class="code-toggler feather icon-code cursor-pointer"></i></div> <div data-v-0d352060="" class="card-body">
 							<!----><!----><div data-v-0d352060="" class="row">
 								<div data-v-0d352060="" class="col-md-12">
@@ -119,22 +150,25 @@
 									</h3>
 								</div>
 
-							</div> <br data-v-0d352060=""> <!----> <div data-v-0d352060="" class="row"><br data-v-0d352060=""></div> <div data-v-0d352060=""><div class="table-responsive" data-v-0d352060=""><table role="table" aria-busy="false" aria-colcount="10" class="table b-table table-striped" id="__BVID__179"><!----><!----><thead role="rowgroup" class=""><!----><tr role="row" class=""><th role="columnheader" scope="col" aria-colindex="1" class=""><div>#</div></th><th role="columnheader" scope="col" aria-colindex="2" class=""><div>Asin</div></th><th role="columnheader" scope="col" aria-colindex="3" class=""><div>Product Name</div></th><th role="columnheader" scope="col" aria-colindex="4" class=""><div>Location</div></th><th role="columnheader" scope="col" aria-colindex="5" class=""><div>Daily Storage Fee</div></th><th role="columnheader" scope="col" aria-colindex="6" class=""><div>Price</div></th><th role="columnheader" scope="col" aria-colindex="7" class=""><div>A Weight</div></th><th role="columnheader" scope="col" aria-colindex="8" class=""><div>D Weight</div></th><th role="columnheader" scope="col" aria-colindex="9" class=""><div>In Stock</div></th><th role="columnheader" scope="col" aria-colindex="10" class=""><div>Actions</div></th></tr></thead><tbody role="rowgroup"><!----><tr role="row" class=""><td aria-colindex="1" role="cell" class=""><div class="vs-checkbox-con custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" value="22957" id="__BVID__198"><label class="custom-control-label" for="__BVID__198"></label></div></td>
-												@foreach(var item in Model)
-												{
-												<tr><td aria-colindex="2" role="cell" class="">B00AR91EV8</td>
-							<td aria-colindex="3" role="cell" class="">@item.OrderName</td>
-							<td aria-colindex="4" role="cell" class=""></td>
-							<td aria-colindex="5" role="cell" class="">$0.00</td>
-							<td aria-colindex="6" role="cell" class="">@item.TotalPrice</td>
-							<td aria-colindex="7" role="cell" class="">70 lbs</td>
-							<td aria-colindex="8" role="cell" class="">0.07 lbs</td>
-							<td aria-colindex="9" role="cell" class="">0</td>
+							</div> <br data-v-0d352060=""> <!----> <div data-v-0d352060="" class="row"><br data-v-0d352060=""></div> <div data-v-0d352060=""><div class="table-responsive" data-v-0d352060=""><table role="table" aria-busy="false" aria-colcount="10" class="table b-table table-striped" id="__BVID__179"><!----><!----><thead role="rowgroup" class=""><!----><tr role="row" class=""><th role="columnheader" scope="col" aria-colindex="1" class=""><div>#</div></th><th role="columnheader" scope="col" aria-colindex="2" class=""><div>Asin</div></th><th role="columnheader" scope="col" aria-colindex="3" class=""><div>Product Name</div></th><th role="columnheader" scope="col" aria-colindex="4" class=""><div>Location</div></th><th role="columnheader" scope="col" aria-colindex="5" class=""><div>Daily Storage Fee</div></th><th role="columnheader" scope="col" aria-colindex="6" class=""><div>Price</div></th><th role="columnheader" scope="col" aria-colindex="7" class=""><div>A Weight</div></th><th role="columnheader" scope="col" aria-colindex="8" class=""><div>Height</div></th><th role="columnheader" scope="col" aria-colindex="9" class=""><div>In Stock</div></th><th role="columnheader" scope="col" aria-colindex="10" class=""><div>Actions</div></th></tr></thead><tbody role="rowgroup"><!----><tr role="row" class=""><td aria-colindex="1" role="cell" class=""><div class="vs-checkbox-con custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" value="22957" id="__BVID__198"><label class="custom-control-label" for="__BVID__198"></label></div></td>
+
+												@foreach (var item in (List<Order>)ViewBag.Orders)
+                                                {
+									
+								
+												<tr><td aria-colindex="2" role="cell" class=""></td>
+							<td aria-colindex="3" role="cell" class="">@item.OrderDate</td>
+													<td aria-colindex="4" role="cell" class="">@item.OrderName</td>
+							<td aria-colindex="5" role="cell" class="">USA</td>
+													<td aria-colindex="6" role="cell" class="">20$</td>
+													<td aria-colindex="7" role="cell" class="">@item.TotalPrice</td>
+							<td aria-colindex="8" role="cell" class="">@item</td>
+							<td aria-colindex="9" role="cell" class="">@item.TotalPrice</td>
 												<td aria-colindex="10" role="cell" class=""></td>
-											</tr>	
-												}
+											</tr>	}
+											
 												
-						</tr><!----><!----></tbody><!----></table></div></div> 
+						<!----><!----></tbody><!----></table></div></div> 
 						<div data-v-0d352060="" id="8" class="card-code collapse" style="display: none;"><div data-v-0d352060="" class="p-1"></div> <pre data-v-0d352060="" class=" language-markup"><code data-v-0d352060="" class=" language-markup"></code></pre></div>
 						</div><!----><!---->
 					</div> <div class="row">
