@@ -48,15 +48,10 @@ namespace WebUi.Controllers
 		}
         public async Task<IActionResult> InventoryProduct(InventoryAddViewModel inventoryAddViewModel)
         {
-            var response = await _client.PostAsJsonAsync("Order/add", inventoryAddViewModel);
-            if (response.IsSuccessStatusCode)
-            {
-                var body = await response.Content.ReadAsStringAsync();
-                
-              
-            }
+            
 
             var usermail = User.Identity.Name;
+            
             var userName = _context.Users.Where(x => x.Email == usermail).Select(y => y.FirstName).FirstOrDefault();
             var userLastName = _context.Users.Where(x => x.Email == usermail).Select(y => y.LastName).FirstOrDefault();
             var userId = _context.Users.Where(x => x.Email == usermail).Select(y => y.Id).FirstOrDefault();
@@ -73,7 +68,16 @@ namespace WebUi.Controllers
             ViewBag.orderDate = userOrderDate;
             ViewBag.orderPrice = userOrderPrice;
             ViewBag.orderAmount = userOrderAmount;
-            return View();
+            inventoryAddViewModel.UserId = userId;
+            var response = await _client.PostAsJsonAsync("Orders/add", inventoryAddViewModel);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var body = await response.Content.ReadAsStringAsync();
+
+                return RedirectToAction("Index", "Inventory");
+            }
+            return RedirectToAction("Index", "Inventory");
         }
     }
 }

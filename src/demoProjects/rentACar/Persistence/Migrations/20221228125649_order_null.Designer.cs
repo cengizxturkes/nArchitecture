@@ -12,8 +12,8 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(BaseDbContext))]
-    [Migration("20221227212434_Initial")]
-    partial class Initial
+    [Migration("20221228125649_order_null")]
+    partial class order_null
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -196,17 +196,8 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Desi")
-                        .HasColumnType("float");
-
                     b.Property<int?>("DocStatus")
                         .HasColumnType("int");
-
-                    b.Property<double>("Height")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Length")
-                        .HasColumnType("float");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
@@ -215,14 +206,13 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OrderNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Price")
+                    b.Property<int?>("OrderNumber")
                         .HasColumnType("int");
 
-                    b.Property<double>("TotalAmount")
+                    b.Property<int?>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("TotalAmount")
                         .HasColumnType("float");
 
                     b.Property<int>("TotalPrice")
@@ -230,15 +220,6 @@ namespace Persistence.Migrations
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
-
-                    b.Property<double>("Volume")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Weight")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Width")
-                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

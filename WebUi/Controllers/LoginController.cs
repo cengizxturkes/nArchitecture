@@ -40,7 +40,6 @@ namespace WebUi.Controllers
                 var claims = new List<Claim>
                     {
                         new Claim(ClaimTypes.Name,loginViewModel.Email),
-
                        new Claim(ClaimTypes.Role,"Customer")
                         //new Claim("refresh_token",  loginResponse.RefreshToken ),
                     };
