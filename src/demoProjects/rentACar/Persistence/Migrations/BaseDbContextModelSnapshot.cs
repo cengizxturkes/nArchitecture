@@ -197,7 +197,7 @@ namespace Persistence.Migrations
                     b.Property<int?>("DocStatus")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("OrderDate")
+                    b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("OrderName")
@@ -284,6 +284,12 @@ namespace Persistence.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<double>("Volume")
                         .HasColumnType("float");

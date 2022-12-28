@@ -33,7 +33,7 @@ namespace WebUi.Controllers
             //var userProductWeight = _context.Orders.Where(x => x.UserId == userId).Select(y => y.Weight.ToString()).ToList();
 
             ViewBag.LastName = userLastName;
-            List<Order> fundList = _context.Orders.Where(x=>x.UserId==userId).ToList();
+            List<Product> fundList = _context.Products.Where(x=>x.UserId==userId).ToList();
             ViewBag.Orders = fundList;
             ViewBag.name = userName;
             ViewBag.v = usermail;
@@ -46,7 +46,7 @@ namespace WebUi.Controllers
 
             return View();
 		}
-        public async Task<IActionResult> InventoryProduct(InventoryAddViewModel inventoryAddViewModel)
+        public async Task<IActionResult> InventoryProduct(InventoryAddViewModel iavm)
         {
             
 
@@ -55,26 +55,25 @@ namespace WebUi.Controllers
             var userName = _context.Users.Where(x => x.Email == usermail).Select(y => y.FirstName).FirstOrDefault();
             var userLastName = _context.Users.Where(x => x.Email == usermail).Select(y => y.LastName).FirstOrDefault();
             var userId = _context.Users.Where(x => x.Email == usermail).Select(y => y.Id).FirstOrDefault();
-            var userOrder = _context.Orders.Where(x => x.UserId == userId).Select(y => y.OrderName).ToList();
-            var userOrderDate = _context.Orders.Where(x => x.UserId == userId).Select(y => y.OrderDate).ToList();
-            var userOrderPrice = _context.Orders.Where(x => x.UserId == userId).Select(y => y.Price.ToString()).ToList();
-            var userOrderAmount = _context.Orders.Where(x => x.UserId == userId).Select(y => y.TotalAmount).ToList();
+           
+          
             ViewBag.LastName = userLastName;
-            List<Order> fundList = _context.Orders.Where(x => x.UserId == userId).ToList();
+            List<Product> fundList = _context.Products.Where(x => x.Id == userId).ToList();
+
             ViewBag.Orders = fundList;
+            
             ViewBag.name = userName;
             ViewBag.v = usermail;
-            ViewBag.order = userOrder;
-            ViewBag.orderDate = userOrderDate;
-            ViewBag.orderPrice = userOrderPrice;
-            ViewBag.orderAmount = userOrderAmount;
-            inventoryAddViewModel.UserId = userId;
-            var response = await _client.PostAsJsonAsync("Orders/add", inventoryAddViewModel);
+            ViewBag.UserId=userId;
+            iavm.UserId = userId;
 
+                       
+            var response = await _client.PostAsJsonAsync("Product/add", iavm);
             if (response.IsSuccessStatusCode)
             {
                 var body = await response.Content.ReadAsStringAsync();
-
+                 InventoryResponse inventoryResponse = JsonConvert.DeserializeObject<InventoryResponse>(body);
+                inventoryResponse.UserId = userId;
                 return RedirectToAction("Index", "Inventory");
             }
             return RedirectToAction("Index", "Inventory");

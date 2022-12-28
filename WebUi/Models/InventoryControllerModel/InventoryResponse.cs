@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Products.Dtos
+﻿namespace WebUi.Models.InventoryControllerModel
 {
-    public class CreatedProductDto
-    {
+	public class InventoryResponse
+	{
         public string Name { get; set; } = "";
         public string AsinCode { get; set; } = "";
         public double Weight { get; set; }

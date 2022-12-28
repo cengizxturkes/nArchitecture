@@ -12,7 +12,7 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(BaseDbContext))]
-    [Migration("20221228124937_initial")]
+    [Migration("20221228135146_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -196,7 +196,7 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DocStatus")
+                    b.Property<int?>("DocStatus")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("OrderDate")
@@ -206,14 +206,13 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OrderNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Price")
+                    b.Property<int?>("OrderNumber")
                         .HasColumnType("int");
 
-                    b.Property<double>("TotalAmount")
+                    b.Property<int?>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("TotalAmount")
                         .HasColumnType("float");
 
                     b.Property<int>("TotalPrice")

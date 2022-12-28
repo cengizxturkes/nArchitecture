@@ -17,6 +17,7 @@ namespace Application.Features.Products.Command.CreateProduct
   : IRequest<CreatedProductDto>
     {
         public string Name { get; set; } = "";
+        public int UserId { get; set; }
         public string AsinCode { get; set; } = "";
         public double Weight { get; set; }
         public double Height { get; set; }
