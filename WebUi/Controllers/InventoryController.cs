@@ -81,5 +81,29 @@ namespace WebUi.Controllers
             }
             return RedirectToAction("Index", "Inventory");
         }
+        public IActionResult NewShipment(Order order)
+        {
+
+            var usermail = User.Identity.Name;
+            var userName = _context.Users.Where(x => x.Email == usermail).Select(y => y.FirstName).FirstOrDefault();
+            var userLastName = _context.Users.Where(x => x.Email == usermail).Select(y => y.LastName).FirstOrDefault();
+            var userId = _context.Users.Where(x => x.Email == usermail).Select(y => y.Id).FirstOrDefault();
+            var userProductName = _context.Orders.Where(x => x.UserId == userId).Select(y => y.OrderName).ToList();
+            //var userProductPrice= _context.Orders.Where(x => x.UserId == userId).Select(y => y.Price.ToString()).ToList();
+            //var userProductWidth= _context.Orders.Where(x => x.UserId == userId).Select(y => y.Width.ToString()).ToList();
+            //var userProductHeight= _context.Orders.Where(x => x.UserId == userId).Select(y => y.Height.ToString()).ToList();
+            //var userProductLenght = _context.Orders.Where(x => x.UserId == userId).Select(y => y.Length.ToString()).ToList();
+            //var userProductWeight = _context.Orders.Where(x => x.UserId == userId).Select(y => y.Weight.ToString()).ToList();
+
+            ViewBag.LastName = userLastName;
+            List<Product> fundList = _context.Products.Where(x => x.UserId == userId).ToList();
+            ViewBag.Orders = fundList;
+            ViewBag.name = userName;
+            ViewBag.v = usermail;
+            ViewBag.order = userProductName;
+            
+
+            return View();
+        }
     }
 }

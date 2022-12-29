@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-    public partial class initial : Migration
+    public partial class userd : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,12 +47,14 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AsinCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Weight = table.Column<double>(type: "float", nullable: false),
                     Height = table.Column<double>(type: "float", nullable: false),
                     Width = table.Column<double>(type: "float", nullable: false),
-                    Volume = table.Column<double>(type: "float", nullable: false)
+                    Desi = table.Column<double>(type: "float", nullable: false),
+                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,7 +73,8 @@ namespace Persistence.Migrations
                     PasswordSalt = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     PasswordHash = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false),
-                    AuthenticatorType = table.Column<int>(type: "int", nullable: false)
+                    AuthenticatorType = table.Column<int>(type: "int", nullable: false),
+                    IsConfirmation = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

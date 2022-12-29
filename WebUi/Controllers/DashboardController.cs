@@ -25,11 +25,11 @@ namespace WebUi.Controllers
 
         public IActionResult Index(LoginViewModel loginViewModel)
         {
-           
             var usermail = User.Identity.Name;
+           var Auth= User.Identity.IsAuthenticated;
 
                 var userId = _context.Users.Where(x => x.Email == usermail).Select(y => y.FirstName).FirstOrDefault();
-            var userLastName= _context.Users.Where(x => x.Email == usermail).Select(y => y.LastName).FirstOrDefault();
+            var userLastName = _context.Users.Where(x => x.Email == usermail).Select(y => y.LastName).FirstOrDefault();
             ViewBag.LastName = userLastName;
             ViewBag.name = userId;
             ViewBag.v = usermail;

@@ -12,8 +12,8 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(BaseDbContext))]
-    [Migration("20221228135747_initial1")]
-    partial class initial1
+    [Migration("20221229142008_userd")]
+    partial class userd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -103,6 +103,9 @@ namespace Persistence.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IsConfirmation")
+                        .HasColumnType("int");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -280,6 +283,9 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Desi")
+                        .HasColumnType("float");
+
                     b.Property<double>("Height")
                         .HasColumnType("float");
 
@@ -292,9 +298,6 @@ namespace Persistence.Migrations
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
-
-                    b.Property<double>("Volume")
-                        .HasColumnType("float");
 
                     b.Property<double>("Weight")
                         .HasColumnType("float");

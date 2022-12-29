@@ -16,7 +16,11 @@ namespace WebUi.Controllers
 {
     public class LoginController : BaseController
     {
-
+private readonly BaseDbContext _context;
+        public LoginController(BaseDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
            
@@ -26,21 +30,23 @@ namespace WebUi.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
-
+            var usermail = loginViewModel.Email;
+            var confirmstatus = _context.Users.Where(x => x.Email == usermail).Select(y => y.IsConfirmation).FirstOrDefault();
             var response = await _client.PostAsJsonAsync("Auth/Login",loginViewModel);
-            if (response.IsSuccessStatusCode)
-            {
 
-                //var body =await response.Content.ReadFromJsonAsync<LoginResponse>();
-                var body=await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode&&confirmstatus == 1)
+            {
+                
+        //var body =await response.Content.ReadFromJsonAsync<LoginResponse>();
+        var body=await response.Content.ReadAsStringAsync();
                 LoginResponse loginResponse=JsonConvert.DeserializeObject<LoginResponse>(body);
                 var Firstname=loginViewModel.FirstName;
                 var Lastname=loginViewModel.LastName;
-                
                 var claims = new List<Claim>
                     {
                         new Claim(ClaimTypes.Name,loginViewModel.Email),
-                       new Claim(ClaimTypes.Role,"Customer")
+                       new Claim(ClaimTypes.Role,"Customer"),
+
                         //new Claim("refresh_token",  loginResponse.RefreshToken ),
                     };
 
@@ -54,6 +60,7 @@ namespace WebUi.Controllers
 
                 return RedirectToAction("Index", "Dashboard");
             }
+
             return View("Index",loginViewModel);
 
         }
