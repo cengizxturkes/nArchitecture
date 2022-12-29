@@ -66,15 +66,18 @@ namespace WebUi.Controllers
             ViewBag.v = usermail;
             ViewBag.UserId=userId;
             iavm.UserId = userId;
+            iavm.Desi = iavm.Width * iavm.Height * iavm.Length/3000;
 
-                       
+
             var response = await _client.PostAsJsonAsync("Product/add", iavm);
             if (response.IsSuccessStatusCode)
             {
+                
                 var body = await response.Content.ReadAsStringAsync();
                  InventoryResponse inventoryResponse = JsonConvert.DeserializeObject<InventoryResponse>(body);
                 inventoryResponse.UserId = userId;
                 return RedirectToAction("Index", "Inventory");
+                
             }
             return RedirectToAction("Index", "Inventory");
         }
