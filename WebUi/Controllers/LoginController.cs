@@ -60,7 +60,12 @@ private readonly BaseDbContext _context;
 
                 return RedirectToAction("Index", "Dashboard");
             }
-
+            else if(response.IsSuccessStatusCode && confirmstatus == 0)
+            {
+                
+                return RedirectToAction("Index", "NoAccess");
+                
+            }
             return View("Index",loginViewModel);
 
         }
