@@ -19,6 +19,7 @@ namespace WebUi.Controllers
 
 			var userId = _context.Users.Where(x => x.Email == usermail).Select(y => y.Id).FirstOrDefault();
 			var userLastName = _context.Users.Where(x => x.Email == usermail).Select(y => y.LastName).FirstOrDefault();
+			var userFirstName = _context.Users.Where(x => x.Email == usermail).Select(y => y.FirstName).FirstOrDefault();
             List<Product> products = _context.Products.Where(x => x.UserId == userId).ToList();
             var productAmount = products.Count();
 			double v = _context.Products.Where(x => x.UserId == userId).Select(x => x.Desi).ToList().Sum();
@@ -33,7 +34,7 @@ namespace WebUi.Controllers
             ViewBag.ProductAmount = productAmount;
 			ViewBag.Orders=products;
             ViewBag.LastName = userLastName;
-			ViewBag.name = userId;
+			ViewBag.name = userFirstName;
 			ViewBag.v = usermail;
 			return View();
 		}

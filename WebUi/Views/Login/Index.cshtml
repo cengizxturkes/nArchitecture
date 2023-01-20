@@ -36,6 +36,8 @@
 
     <!---Icons css-->
     <link href="~/admin/Html/HTML/assets/css/icons.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 </head>
 
@@ -96,7 +98,10 @@
                                 </label>
                             </div>
                             <div class="submit">
-                                <button class="btn btn-primary btn-block" type="submit">Giriş Yap</button>
+                                <button class="btn btn-primary btn-block" id="LoginButton" type="submit" onmouseover="changeColorOnMouseOver();">Giriş Yap</button>
+                                <script type="text/javascript" >function changeColorOnMouseOver(){
+                                        document.getElementById("LoginButton").innerText("Selam");
+                                }></script>
                             </div>
                             <div class="text-center mt-3">
                                 <p class="mb-2"><a href="javascript:void(0);">Forgot Password</a></p>
@@ -138,7 +143,6 @@
 
     <!-- custom js -->
     <script src="~/admin/Html/HTML/assets/js/custom.js"></script>
-
 </body>
 </html>
 

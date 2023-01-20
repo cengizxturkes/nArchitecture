@@ -62,8 +62,8 @@ private readonly BaseDbContext _context;
             }
             else if(response.IsSuccessStatusCode && confirmstatus == 0)
             {
+                Response.WriteAsync("<script>swal('Hi')</script>");
                 
-                return RedirectToAction("Index", "NoAccess");
                 
             }
             return View("Index",loginViewModel);

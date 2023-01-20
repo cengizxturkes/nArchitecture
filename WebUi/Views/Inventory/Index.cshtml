@@ -6,7 +6,20 @@
 	Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 
+<a href="~/lib/jquery/dist/jquery.min.map">~/lib/jquery/dist/jquery.min.map</a>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/admin/html/html/assets/js/jquery.showmore.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+
+<html>
+    <body>
 <div class="app-content main-content">
     <div class="side-app main-container">
 
@@ -254,13 +267,14 @@
                                         <div data-v-0d352060="" class="col-md-4">
                                             <div data-v-0d352060="" class="row">
                                                 <div data-v-0d352060="" class="col-md-1"></div>
-                                                <div data-v-0d352060="" class="col-md-5">Fiyat</div>
-                                                <div data-v-0d352060="" class="col-md-5">Ağırlık</div>
+                                                <div data-v-0d352060="" class="col-md-3">Fiyat</div>
+                                                <div data-v-0d352060="" class="col-md-3">Miktar</div>
+                                                <div data-v-0d352060="" class="col-md-3">Ağırlık</div>
                                                 <div data-v-0d352060="" class="col-md-1"></div>
                                             </div>
                                         </div>
                                         <div data-v-0d352060="" class="col-md-3">Ölçüler</div>
-                                        <div data-v-0d352060="" class="col-md-2">D.Ağırlık</div>
+                                        @*<div data-v-0d352060="" class="col-md-2">Miktar</div>*@
                                     </div>
                                     <div data-v-0d352060="" class="row" style="padding-top: 20px; text-align: center;">
                                         <div data-v-0d352060="" class="col-md-3">
@@ -278,15 +292,21 @@
                                                 </div><!---->
                                             </div>
                                         </div>
+
                                         <div data-v-0d352060="" class="col-md-4">
                                             <div data-v-0d352060="" class="row">
                                                 <div data-v-0d352060="" class="col-md-1"></div>
-                                                <div data-v-0d352060="" class="col-md-5">
+                                                <div data-v-0d352060="" class="col-md-3">
 
-                                                    <input asp-for="TotalPrice" type="text" placeholder="0.00"
+                                                        <input asp-for="ExpectedTotalPrice" type="text" placeholder="0.00"
                                                            class="mb-2 form-control" style="text-align: center;">
-                                                </div>
-                                                <div data-v-0d352060="" class="col-md-5">
+                                                    </div>
+                                                    <div data-v-0d352060="" class="col-md-3">
+
+                                                        <input asp-for="ExpectedStockAmount" type="text" placeholder="0.00"
+                                                               class="mb-2 form-control" style="text-align: center;">
+                                                    </div>
+                                                <div data-v-0d352060="" class="col-md-3">
                                                     <input asp-for="Weight" type="text" placeholder="0.0"
                                                            class="mb-2 form-control" data-v-0d352060=""
                                                            style="text-align: center;">
@@ -294,33 +314,41 @@
                                                 <div data-v-0d352060="" class="col-md-1"></div>
                                             </div>
                                         </div>
-                                        <div data-v-0d352060="" class="col-md-3">
-                                            <div data-v-0d352060="" class="row">
+                                            <div data-v-0d352060="" class="col-md-4">
+                                                <div data-v-0d352060="" class="row">
                                                 <div data-v-0d352060="" class="col-md-1"></div>
                                                 <div data-v-0d352060="" class="col-md-10">
                                                     <div data-v-0d352060="" class="row">
-                                                        <div data-v-0d352060="" class="col-md-4">
+                                                        <div data-v-0d352060="" class="col-md-3">
                                                             <input asp-for="Width" type="text" placeholder="0.0"
                                                                    class="mb-2 form-control" style="text-align: center;">
                                                         </div>
-                                                        <div data-v-0d352060="" class="col-md-4">
+                                                        <div data-v-0d352060="" class="col-md-3">
                                                             <input asp-for="Height" type="text" placeholder="0.0"
                                                                    class="mb-2 form-control" data-v-0d352060=""
                                                                    style="text-align: center;">
                                                         </div>
-                                                        <div data-v-0d352060="" class="col-md-4">
+                                                        <div data-v-0d352060="" class="col-md-3">
                                                             <input asp-for="Length" type="text" placeholder="0.0"
                                                                    class="mb-2 form-control" data-v-0d352060=""
                                                                    style="text-align: center;">
                                                             <input asp-for="UserId" type="hidden"
                                                                    Value=ViewBag.UserId />
+                                                            </div>
+                                                            
+                                                          
                                                         </div>
-                                                    </div>
+                                                        
                                                 </div>
-                                                <div data-v-0d352060="" class="col-md-1"></div>
+                                                
                                             </div>
+                                               
                                         </div>
-                                        <div data-v-0d352060="" class="col-md-2">
+                                         
+
+                                            <div data-v-0d352060="" class="col-md-4">
+                                                  
+                                        <div data-v-0d352060="" class="col-md-1">
                                             <div data-v-0d352060="" class="row">
                                                 <div data-v-0d352060="" class="col-md-1"></div>
                                                 <div data-v-0d352060="" class="col-md-10">
@@ -333,9 +361,9 @@
                                         </div>
                                     </div>
                                     <div data-v-0d352060="" class="row" style="padding-top: 20px;">
-                                        <div data-v-0d352060="" class="col-md-12">
+                                        <div data-v-0d352060="" class="col-md-6">
                                             <input asp-for="Name" id="v-product-title" type="text"
-                                                   placeholder="Ürün İsmi" class="mb-2 form-control" data-v-0d352060="">
+                                                   placeholder="Product Name" class="mb-2 form-control" data-v-0d352060="">
                                         </div>
                                     </div>
                                 </div>
@@ -390,6 +418,9 @@
                                                     <div>#</div>
                                                 </th>
                                                 <th role="columnheader" scope="col" aria-colindex="2" class="">
+                                                    <div>Id</div>
+                                                </th>
+                                                <th role="columnheader" scope="col" aria-colindex="2" class="">
                                                     <div>Asin</div>
                                                 </th>
                                                 <th role="columnheader" scope="col" aria-colindex="3" class="">
@@ -398,9 +429,7 @@
                                                 <th role="columnheader" scope="col" aria-colindex="4" class="">
                                                     <div>Location</div>
                                                 </th>
-                                                <th role="columnheader" scope="col" aria-colindex="5" class="">
-                                                    <div>Daily Storage Fee</div>
-                                                </th>
+                                              
                                                 <th role="columnheader" scope="col" aria-colindex="6" class="">
                                                     <div>Price</div>
                                                 </th>
@@ -411,7 +440,7 @@
                                                     <div>Height</div>
                                                 </th>
                                                 <th role="columnheader" scope="col" aria-colindex="9" class="">
-                                                    <div>In Stock</div>
+                                                    <div>Quantity</div>
                                                 </th>
                                                 <th role="columnheader" scope="col" aria-colindex="10" class="">
                                                     <div>Actions</div>
@@ -434,19 +463,30 @@
 
 
                                                 <tr>
-                                                    <td>
-                                                        <div class="vs-checkbox-con custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"><label class="custom-control-label" for="__BVID__198"></label>
-                                                        </div>
+                                                        <td>
+                                                            <form asp-action="Index" asp-controller="EditProduct" >
+                                                                <a class="btn btn-info" id=@item.Id type="submit" asp-route-id="@item.Id" asp-action="Index" asp-controller="EditProduct">Edit</a>
+
+                                                    </form>
+                                                        @*<script>
+                                                            $("#@item.Id").click(function(){
+                                                                
+                                                                   
+                                                            });
+
+                                                               
+                                                                
+                                                        </script>*@
+                                                       
                                                     </td>
-                                                    <td aria-colindex="2" role="cell" class=""></td>
-                                                    <td aria-colindex="3" role="cell" class="">@item.AsinCode</td>
-                                                    <td aria-colindex="4" role="cell" class="">@item.Name</td>
-                                                    <td aria-colindex="5" role="cell" class="">USA</td>
-                                                    <td aria-colindex="6" role="cell" class="">20$</td>
-                                                    <td aria-colindex="7" role="cell" class="">@item.TotalPrice</td>
-                                                    <td aria-colindex="8" role="cell" class="">@item.Weight</td>
-                                                    <td aria-colindex="9" role="cell" class="">@item.TotalPrice</td>
+                                                    <td aria-colindex="2" role="cell" class="">@item.Id</td>
+                                                    <td aria-colindex="2" role="cell" class="">@item.AsinCode</td>
+                                                    <td aria-colindex="3" role="cell" class="">@item.Name</td>
+                                                    <td aria-colindex="4" role="cell" class="">USA</td>
+                                                    <td aria-colindex="6" role="cell" class="">@item.TotalPrice</td>
+                                                    <td aria-colindex="7" role="cell" class="">@item.Weight</td>
+                                                    <td aria-colindex="8" role="cell" class="">@item.TotalPrice</td>
+                                                    <td aria-colindex="9" role="cell" class=""></td>
                                                     <td aria-colindex="10" role="cell" class=""></td>
                                                 </tr>
                                                 }
@@ -464,6 +504,7 @@
                             </div>
                         </div><!----><!---->
                     </div>
+
                     <div class="row">
                         <div class="col-6" style="text-align: left;">
                             <button type="button" class="btn btn-warning">
@@ -480,9 +521,13 @@
                 </div>
             </div>
         </div>
+
         <!--End Page header-->
         <!--Row-->
 
 
     </div>
-</div>
+    </div>
+    
+</body>
+</html>
