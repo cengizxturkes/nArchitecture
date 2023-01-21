@@ -48,6 +48,7 @@ namespace Application.Features.Products.Command.CreateProduct
 
 
                 Product mappedProduct = _mapper.Map<Product>(request);
+                mappedProduct.RealPrice = mappedProduct.ExpectedTotalPrice;
                 Product createdProduct = await _productRepository.AddAsync(mappedProduct);
                 CreatedProductDto createdProductDto = _mapper.Map<CreatedProductDto>(createdProduct);
 

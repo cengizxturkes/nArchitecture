@@ -1,6 +1,7 @@
 ﻿using Application.Features.Customers.Dtos;
 using Application.Features.Customers.Models;
 using Application.Features.Products.Command.CreateProduct;
+using Application.Features.Products.Command.UpdateProduct;
 using Application.Features.Products.Dtos;
 using Application.Features.Products.Models;
 using AutoMapper;
@@ -24,6 +25,8 @@ namespace Application.Features.Products.Profiles
             CreateMap<Product, CreatedProductDto>().ReverseMap();
             CreateMap<IPaginate<Product>, ProductListModel>().ReverseMap();
             CreateMap<Product, ProductGetByIdDto>().ReverseMap();
+            CreateMap<Product, UpdatedProductDto>().ReverseMap();
+            CreateMap<Product, UpdateProductCommand>().ReverseMap();
         }
     }
 }

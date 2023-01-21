@@ -1,5 +1,6 @@
 ﻿using Application.Features.Products.Dtos;
 using Application.Services.Repositories;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,10 +30,14 @@ namespace Persistence
             services.AddScoped<IProductRepository,  ProductRepository>();
             services.AddScoped<IOrderItemRepository,OrderItemRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
-            
+            services.AddScoped<IDiscountRepository, DiscountRepository>();
+            services.AddScoped<IProductDiscountRepository, ProductDiscountRepository>();
+
+
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<IOperationClaimRepository, OperationClaimRepository>();
             services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
+            services.AddScoped<IProductFbaServicesRepository, ProductFbaServicesRepository>();
 
             return services;
         }

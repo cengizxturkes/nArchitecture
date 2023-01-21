@@ -1,123 +1,201 @@
 ﻿@using Domain.Entities;
 
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-    
-
-*@
 @{
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
-    
+
 <div class="app-content main-content">
     <div class="side-app main-container">
-<div data-v-0d352060="" class="card-body">
-    <!----><!---->
-    <div data-v-0d352060="" class="row">
-        <div data-v-0d352060="" class="col-md-6">
-            <table data-v-0d352060="" class="table table-borderless">
-                <thead data-v-0d352060="" class="table-light">
-                    <tr data-v-0d352060="">
-                        <th data-v-0d352060="" scope="col">SERVICES</th>
-                        <th data-v-0d352060="" scope="col" style="text-align: right;">COSTS</th>
-                    </tr>
-                </thead>
-                <tbody data-v-0d352060="">
+        <div data-v-0d352060="" class="card-body">
+            <!----><!---->
+            <div data-v-0d352060="" class="row">
+                <div data-v-0d352060="" class="col-md-8">
+                    <table data-v-0d352060="" class="table table-borderless">
+                        <thead data-v-0d352060="" class="table-light">
+                            <tr data-v-0d352060="">
+                                <th data-v-0d352060="" scope="col">SERVICES</th>
+                                <th data-v-0d352060="" scope="col" style="text-align: right;">COSTS</th>
+                            </tr>
+                        </thead>
+                        <tbody data-v-0d352060="" class="tablebodydisc">
 
-                    <tr data-v-0d352060="">
-                        <th data-v-0d352060="" scope="row">FNSKU Labeling</th>
+                            @*<tr data-v-0d352060="">
+                            <th data-v-0d352060="" scope="row">FNSKU Labeling</th>
 
-                                <td data-v-0d352060="" style="text-align: right;">@ViewBag.ProductQuantityFNSKU $</td>
-                    </tr>
-                    <tr data-v-0d352060="">
-                        <th data-v-0d352060="" scope="row">Box Labeling</th>
-                        <td data-v-0d352060="" style="text-align: right;">$ 3</td>
-                    </tr>
-                   @* <tr data-v-0d352060="">
-                        <th data-v-0d352060="" scope="row">Delivering to Carrier</th>
-                        <td data-v-0d352060="" style="text-align: right;">$ 2</td>
-                    </tr>*@
-                    <tr data-v-0d352060="">
-                        <th data-v-0d352060="" scope="row">Label Disassembly</th>
-                        <td data-v-0d352060="" style="text-align: right;">Free</td>
-                    </tr>
-                    <tr data-v-0d352060="">
-                        <th data-v-0d352060="" scope="row">Additional Labeling</th>
-                        <td data-v-0d352060="" style="text-align: right;">0.25</td>
-                               
-                                  @foreach (var item in (List<Product>)ViewBag.SelectedProductList)
-                                                {
-                                    <td class="material-switch pull-right">
-                                       
-                                        <input id=@item.Id name="someSwitchOption001" type="checkbox"/>
-                                        
-                                        <label for=@item.Id class="label-success"></label>
-                                    </td>}
-                               
-                    </tr>
-                    <tr data-v-0d352060="">
-                        <th data-v-0d352060="" scope="row">Poly Bagging</th>
-                        <td data-v-0d352060="" style="text-align: right;">$ 0.00</td>
-                    </tr>
-                    <tr data-v-0d352060="">
-                        <th data-v-0d352060="" scope="row">Bundle</th>
-                        <td data-v-0d352060="" style="text-align: right;">$ 0.00</td>
-                    </tr>
-                    <tr data-v-0d352060="">
-                        <th data-v-0d352060="" scope="row">Destination Country</th>
-                        <td data-v-0d352060="" style="text-align: right;">
-                            <div dir="auto" class="v-select vs--single vs--searchable"
-                                 data-v-0d352060="">
-                                <div id="vs1__combobox" role="combobox" aria-expanded="false"
-                                     aria-owns="vs1__listbox" aria-label="Search for option"
-                                     class="vs__dropdown-toggle">
-                                    <div class="vs__selected-options">
-                                        <input aria-autocomplete="list"
-                                               aria-labelledby="vs1__combobox"
-                                               aria-controls="vs1__listbox" type="search"
-                                               autocomplete="off" class="vs__search">
-                                    </div>
-                                    <div class="vs__actions">
-                                        <button type="button"
-                                                title="Clear Selected" aria-label="Clear Selected"
-                                                class="vs__clear" style="display: none;">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="10"
-                                                 height="10">
-                                                <path d="M6.895455 5l2.842897-2.842898c.348864-.348863.348864-.914488 0-1.263636L9.106534.261648c-.348864-.348864-.914489-.348864-1.263636 0L5 3.104545 2.157102.261648c-.348863-.348864-.914488-.348864-1.263636 0L.261648.893466c-.348864.348864-.348864.914489 0 1.263636L3.104545 5 .261648 7.842898c-.348864.348863-.348864.914488 0 1.263636l.631818.631818c.348864.348864.914773.348864 1.263636 0L5 6.895455l2.842898 2.842897c.348863.348864.914772.348864 1.263636 0l.631818-.631818c.348864-.348864.348864-.914489 0-1.263636L6.895455 5z">
-                                                </path>
-                                            </svg>
-                                        </button> <svg xmlns="http://www.w3.org/2000/svg" width="14"
-                                                       height="10" role="presentation"
-                                                       class="vs__open-indicator">
-                                            <path d="M9.211364 7.59931l4.48338-4.867229c.407008-.441854.407008-1.158247 0-1.60046l-.73712-.80023c-.407008-.441854-1.066904-.441854-1.474243 0L7 5.198617 2.51662.33139c-.407008-.441853-1.066904-.441853-1.474243 0l-.737121.80023c-.407008.441854-.407008 1.158248 0 1.600461l4.48338 4.867228L7 10l2.211364-2.40069z">
-                                            </path>
-                                        </svg>
-                                        <div class="vs__spinner" style="display: none;">
-                                            Loading...
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul id="vs1__listbox" role="listbox"
-                                    style="display: none; visibility: hidden;"></ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr data-v-0d352060="" class="border-bottom">
-                        <th data-v-0d352060="" scope="row">Expected Shipping Cost</th>
-                        <td data-v-0d352060="" style="text-align: right;">$0</td>
-                    </tr>
-                    <tr data-v-0d352060="">
-                        <th data-v-0d352060="" scope="row">Expected Cost Per Item</th>
-                        <td data-v-0d352060="" style="text-align: right;">$0</td>
-                    </tr>
-                    <tr data-v-0d352060="">
-                        <th data-v-0d352060="" scope="row">Expected Total Cost</th>
-                        <td data-v-0d352060="" style="text-align: right;">@ViewBag.ExpectedTotalCost </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
+                            <td data-v-0d352060="" style="text-align: right;">0.30$</td>
+                            @foreach (var item in (List<Product>)ViewBag.SelectedProductList)
+                            {
+
+                            <td class="material-switch pull-right">
+
+                            <input id="fnsku" name="someSwitchOption001" class="someSwitchOption" type="checkbox"/>
+
+                            <label for="fnsku" class="label-success"></label>
+                            </td>
+
+                            <script>
+                            document.getElementById("fnsku").addEventListener("change",function(){
+                            if (this.checked) {
+                            alert("açık");
+                            //document.getElementById("priceFnsku").style.display="inline";
+                            $.ajax({
+                            async:true,
+                            data: {  id: @item.Id,fnsku:1},
+                            type: "POST",
+                            dataType: 'json',
+                            url: "/EditProduct/Index/",
+                            beforeSend: function () {
+                            },
+                            success: function (data) {
+                            if (data.success) {
+                            console.log(data);
+                            } else {
+
+                            }
+                            }
+                            });
+                            }
+                            });
+
+
+
+                            //$("#cengiz").click(function(){
+
+                            //             $.ajax({
+                            //                 type: "POST",
+                            //                 dataType: 'json',
+                            //                 url: "/EditProduct/Edit/",
+                            //                 beforeSend: function () {
+                            //                 },
+                            //                 success: function (data) {
+                            //                     if (data.success) {
+                            //                         console.log(data);
+                            //                     } else {
+
+                            //                     }
+                            //                 }
+                            //             });
+
+                            //});
+
+                            </script>
+
+                            }
+                            </tr>*@
+                            @*    <tr data-v-0d352060="">
+                            <th data-v-0d352060="" scope="row">Box Labeling</th>
+                            <td data-v-0d352060="" style="text-align: right;">$ 3</td>
+                            <td class="material-switch pull-right">
+
+                            <input id="boxlabeling" name="someSwitchOption001" class="someSwitchOption" type="checkbox" />
+
+                            <label for="boxlabeling" class="label-success"></label>
+                            <script>
+                            document.getElementById("boxlabeling").addEventListener("change", function () {
+                            if (this.checked) {
+                            alert("açık");
+                            //document.getElementById("priceFnsku").style.display="inline";
+                            $.ajax({
+                            async: true,
+                            data: { boxlabeling: 1 },
+                            type: "POST",
+                            dataType: 'json',
+                            url: "/EditProduct/Index/",
+                            beforeSend: function () {
+                            },
+                            success: function (data) {
+                            if (data.success) {
+                            console.log(data);
+                            } else {
+
+                            }
+                            }
+                            });
+                            }
+                            });
+
+
+
+
+                            </script>
+                            </td>
+
+                            </tr>*@
+                            @* <tr data-v-0d352060="">
+                            <th data-v-0d352060="" scope="row">Delivering to Carrier</th>
+                            <td data-v-0d352060="" style="text-align: right;">$ 2</td>
+                            </tr>*@
+                           @* <tr data-v-0d352060="">
+                                <th data-v-0d352060="" scope="row">Label Disassembly</th>
+                                <td data-v-0d352060="" style="text-align: right;">Free</td>
+
+                            </tr>
+                            <tr data-v-0d352060="">
+                                <th data-v-0d352060="" scope="row">Additional Labeling</th>
+                                <td data-v-0d352060="" style="text-align: right;">0.25</td>
+                                <td class="material-switch pull-right">
+
+                                    <input id="AdditionalLabeling" name="someSwitchOption001" class="someSwitchOption" type="checkbox" />
+
+                                    <label for="AdditionalLabeling" class="label-success"></label>
+                                    <script>
+                                        document.getElementById("AdditionalLabeling").addEventListener("change", function () {
+                                            if (this.checked) {
+                                                alert("açık");
+                                                //document.getElementById("priceFnsku").style.display="inline";
+                                                $.ajax({
+                                                    async: true,
+                                                    data: { AdditionalLabeling: 1 },
+                                                    type: "POST",
+                                                    dataType: 'json',
+                                                    url: "/EditProduct/EditFnsku/",
+                                                    beforeSend: function () {
+                                                    },
+                                                    success: function (data) {
+                                                        if (data.success) {
+                                                            console.log(data);
+                                                        } else {
+
+                                                        }
+                                                    }
+                                                });
+                                            }
+                                        });
+
+
+
+
+                                    </script>
+                                </td>
+                            </tr>
+*@
+                            <tr data-v-0d352060="">
+                                <th data-v-0d352060="" scope="row">Poly Bagging</th>
+                                <td data-v-0d352060="" style="text-align: right;">$ 0.00</td>
+
+
+
+
+                            </tr>
+                            <tr data-v-0d352060="">
+                                <th data-v-0d352060="" scope="row">Bundle</th>
+                                <td data-v-0d352060="" style="text-align: right;">$ 0.00</td>
+
+
+
+
+
+                                @*<tr data-v-0d352060="">
+                                <th data-v-0d352060="" scope="row">Expected Total Cost</th>
+                                <td data-v-0d352060="" style="text-align: right;">@ViewBag.ExpectedTotalCost </td>
+                                </tr>*@
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
     </div>
@@ -139,7 +217,7 @@
                 </div>
 
             </div> <br data-v-0d352060=""> <!---->
-           
+
             <div data-v-0d352060="">
                 <div class="table-responsive" data-v-0d352060="">
                     <table role="table" aria-busy="false" aria-colcount="10"
@@ -184,7 +262,7 @@
                         <tbody role="rowgroup">
                             <!---->
                             <tr role="row" class="">
-                               
+
 
                                 @foreach (var item in (List<Product>)ViewBag.SelectedProductList)
                                 {
@@ -192,7 +270,7 @@
 
                                 <tr>
                                     <td>
-                                       
+
                                             @*<script>
                                     $("#@item.Id").click(function(){
 
@@ -237,13 +315,15 @@
                 İptal
             </button>&nbsp;
 
-
-
-
-            <button data-v-0d352060="" type="button" class="btn btn-success disabled"
-                    disabled="disabled">
+            @*
+            <form asp-action="EditFnsku" asp-controller="EditProduct">
+            <button type="submit" class="btn btn-success">
+            Gönderiyi Tamamla
+            </button>
+            </form><br data-v-0d352060=""><br data-v-0d352060=""> <!---->*@
+            <div class="btn btn-success" onclick="updateProduct()">
                 Gönderiyi Tamamla
-            </button><br data-v-0d352060=""><br data-v-0d352060=""> <!---->
+            </div>
         </div>
     </div>
     <div data-v-0d352060="" id="2" class="card-code collapse" style="display: none;">
@@ -251,6 +331,70 @@
         <pre data-v-0d352060=""
              class="language-markup"><code data-v-0d352060="" class="language-markup"></code></pre>
     </div>
-        </div>
-    </div>
 </div>
+<script>
+    function updateProduct() {
+        var discChecs = $(".disccheck");
+        var data = { "ProductID": @ViewBag.ProductID};
+        data.Discs = [];
+        for (var k = 0; k < discChecs.length; k++) {
+
+            var item = $(discChecs[k]);
+
+            if (item.is(':checked')) {
+                data.Discs.push({
+                    "added": true,
+                    "DiscountID": parseInt(item.data("discid"))
+                });
+
+            }
+
+        }
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:5147/api/Product/updateDisc',
+            data: JSON.stringify(data),
+            success: function (data) {
+                location.reload();
+            },
+            contentType: "application/json",
+            dataType: 'json'
+        });
+
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        var tablebodydisc = $(".tablebodydisc");
+
+        $.ajax({
+            async: true,
+            data: { AdditionalLabeling: 1 },
+            type: "GET",
+            dataType: 'json',
+            url: "http://localhost:5147/api/Product/getdisc?ProductID=" + @ViewBag.ProductID,
+            beforeSend: function () {
+            },
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    var item = data[i];
+                    console.log(item);
+                    var htmls = `<tr>
+                                                                              <th data-v-0d352060="" scope="row">`+ item.discount.name + `</th>
+
+                                                                                        <td data-v-0d352060="" style="text-align: right;">`+ ((item.discount.multiplier ? '% ':'$ ') + item.discount.disc).replace("1.", "").replace("0.", "") + `</td>
+                                                                                <td class="material-switch pull-right">
+
+                                                                                                    <input `+ (item.added ? 'checked' : '') + ` id="disc` + item.discount.id + `" name="disc` + item.discount.id + ` " class="someSwitchOption disccheck" data-discid="` + item.discount.id + ` " type="checkbox"/>
+
+                                                                                    <label for="disc`+ item.discount.id + `" class="label-success"></label>
+                                                                                    </td></tr>`;
+
+                    tablebodydisc.prepend(htmls);
+                }
+
+            }
+        });
+
+    });
+</script>
+
+

@@ -22,7 +22,10 @@ namespace Persistence.Contexts
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductDiscount> ProductDiscounts { get; set; }
+        public DbSet<Discount> Discounts { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<ProductFbaServices> ProductFbaServices { get; set; }
 
 
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)

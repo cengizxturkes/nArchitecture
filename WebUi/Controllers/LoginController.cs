@@ -32,7 +32,7 @@ private readonly BaseDbContext _context;
         {
             var usermail = loginViewModel.Email;
             var confirmstatus = _context.Users.Where(x => x.Email == usermail).Select(y => y.IsConfirmation).FirstOrDefault();
-            var response = await _client.PostAsJsonAsync("Auth/Login",loginViewModel);
+            var response = await _client.PostAsJsonAsync("Auth/Login", loginViewModel);
 
             if (response.IsSuccessStatusCode&&confirmstatus == 1)
             {
@@ -40,7 +40,7 @@ private readonly BaseDbContext _context;
         //var body =await response.Content.ReadFromJsonAsync<LoginResponse>();
         var body=await response.Content.ReadAsStringAsync();
                 LoginResponse loginResponse=JsonConvert.DeserializeObject<LoginResponse>(body);
-                var Firstname=loginViewModel.FirstName;
+                var Firstname =loginViewModel.FirstName;
                 var Lastname=loginViewModel.LastName;
                 var claims = new List<Claim>
                     {

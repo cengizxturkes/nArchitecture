@@ -67,7 +67,7 @@ namespace WebUi.Controllers
             ViewBag.UserId=userId;
             iavm.UserId = userId;
             iavm.Desi = iavm.Width * iavm.Height * iavm.Length/3000;
-
+            iavm.ExpectedTotalPrice = iavm.TotalPrice * iavm.ExpectedStockAmount;
             string data = JsonConvert.SerializeObject(fundList);
             TempData["ProductList"] = data;
             ViewBag.Data = data;

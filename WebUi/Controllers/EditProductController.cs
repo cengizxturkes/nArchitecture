@@ -1,20 +1,28 @@
 ﻿using Domain.Entities;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Persistence.Contexts;
+using System.Security.Claims;
+using WebUi.Models.AuthControllerModel;
+using WebUi.Models.TokenModels;
 using WebUi.ServicesPrice;
+using System.Linq;
 
 namespace WebUi.Controllers
 {
-    public class EditProductController : Controller
+    public class EditProductController : BaseController
     {
         private readonly BaseDbContext _context;
         public EditProductController(BaseDbContext context)
         {
             _context = context;
         }
+
         [Authorize]
-        public IActionResult Index(int id,ServicesPrices servicesPrices)
+        public async Task<IActionResult> IndexAsync(int id,int fnsku, int boxlabeling)
         {
 
             double GoodAcceptance = 0.15;
@@ -40,23 +48,82 @@ namespace WebUi.Controllers
             ViewBag.LastName = userLastName;
             List<Product> fundList = _context.Products.Where(x => x.UserId == userId).ToList();
             List<Product> SelectedProductList = _context.Products.Where(x => x.Id == id).ToList();
-            var ProductQuantity = _context.Products.Where(x => x.Id == id).Select(y=>y.ExpectedStockAmount).FirstOrDefault();
+            var cengiz =SelectedProductList.Select(x => x.ExpectedTotalPrice).FirstOrDefault();
+            var TotalStock=SelectedProductList.Select(x => x.ExpectedStockAmount).FirstOrDefault();
+            var toplam = cengiz / TotalStock * .3;
+            
+            //diğğerleri de etkilicek demi konuuutumuz gibi
+            //yo o deil 3 toggle var a tamamdır
+           
+            //ürün hhangisi mkk
+                var ProductQuantity = _context.Products.Where(x => x.Id == id).Select(y=>y.ExpectedStockAmount).FirstOrDefault();
             var ProductExpectedTotalPrice = _context.Products.Where(x => x.Id == id).Select(y=>y.ExpectedTotalPrice).FirstOrDefault();
+            var ExpectedTotalQuantity = _context.Products.Where(x => x.Id == id).Select(y => y.ExpectedStockAmount).FirstOrDefault();
+            var Fnsku = ExpectedTotalQuantity * 0.30;
             var ProductDesi = _context.Products.Where(x => x.Id == id).Select(y=>y.Desi).FirstOrDefault();
-            ViewBag.ProductQuantity = ProductQuantity;
             var FNSKU = (ProductQuantity * FnskuLabelling);
              FNSKU = Math.Round(FNSKU, 2);
+            if (fnsku == 1)
+            {
+
+                var response = await _client.PostAsJsonAsync("Product/update", SelectedProductList);
+                if (response.IsSuccessStatusCode)
+                {
+
+                }
+            }
+
+
+            var boxlabelingupdate = boxlabeling == 0 ? ProductExpectedTotalPrice : 3 + ProductExpectedTotalPrice; 
+
+            //if (fnsku == 0)
+            //{
+            //    @ViewBag.ExpectedTotalCostWithoutTotal = ProductExpectedTotalPrice;
+            //}
+            //else
+            //{
+            //    @ViewBag.ExpectedTotalCostWithoutTotal = FNSKU + ProductExpectedTotalPrice;
+            //}
+
+            ViewBag.ProductQuantity = ProductQuantity;
+           
             ViewBag.ProductQuantityFNSKU = FNSKU;
             double Boxing = ProductDesi<=50?3:6;
-
-            var ExpectedTotalCost = (ProductExpectedTotalPrice * ProductQuantity)+FNSKU+Boxing;
-
-            ViewBag.ExpectedTotalCost = ExpectedTotalCost;
+            
             ViewBag.Orders = fundList;
             ViewBag.name = userName;
             ViewBag.v = usermail;
             ViewBag.SelectedProductList = SelectedProductList;
+            ViewBag.ProductID = SelectedProductList.First().Id;
+            //bu neden liste mk tek ürün ok mu id'yye ait
+            //hayır çok ürün olabilir
+
+
             return View(fundList);
+
+
+            
+        } 
+
+
+        [HttpPost]
+        public async Task<IActionResult> EditFnsku(int id,int fnsku)
+        {
+            var ExpectedTotalProductPrice = _context.Products.Where(x => x.Id == id).Select(y => y.ExpectedTotalPrice).FirstOrDefault();
+            var ExpectedTotalQuantity = _context.Products.Where(x => x.Id == id).Select(y => y.ExpectedStockAmount).FirstOrDefault();
+            var Fnsku = ExpectedTotalQuantity * 0.30;
+           
+
+            return RedirectToAction("Index","Inventory", ExpectedTotalProductPrice);
         }
+        public async Task<IActionResult> Edited(double ExpectedTotalProductPrice)
+        {
+            var Exped = ExpectedTotalProductPrice;
+
+
+
+            return View("Index",ExpectedTotalProductPrice);
+        }
+
     }
 }

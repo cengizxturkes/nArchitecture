@@ -12,6 +12,10 @@
 		<Folder Include="Features\Models\Commands\" />
 		<Folder Include="Features\Models\Constants\" />
 		<Folder Include="Features\Models\Rules\" />
+		<Folder Include="Features\ProductDiscount\Commands\Create\" />
+		<Folder Include="Features\ProductDiscount\Models\" />
+		<Folder Include="Features\ProductDiscount\Queries\" />
+		<Folder Include="Features\ProductDiscount\Profiles\" />
 	</ItemGroup>
 
 	<ItemGroup>
