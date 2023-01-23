@@ -19,7 +19,7 @@ namespace Application.Features.Products.Command.CreateProduct
         public int UserId { get; set; }
         public string Name { get; set; } = "";
         public double Length { get; set; }
-
+        public int Box { get; set; }
         public string AsinCode { get; set; } = "";
         public double Weight { get; set; }
         public double Height { get; set; }

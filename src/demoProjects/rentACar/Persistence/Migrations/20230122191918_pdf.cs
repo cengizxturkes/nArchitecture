@@ -4,12 +4,12 @@
 
 namespace Persistence.Migrations
 {
-    public partial class productisactive : Migration
+    public partial class pdf : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<bool>(
-                name: "IsActive",
+                name: "IsOrder",
                 table: "Products",
                 type: "bit",
                 nullable: false,
@@ -19,7 +19,7 @@ namespace Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "IsActive",
+                name: "IsOrder",
                 table: "Products");
         }
     }

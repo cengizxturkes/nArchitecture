@@ -12,8 +12,8 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(BaseDbContext))]
-    [Migration("20230120191455_fix3")]
-    partial class fix3
+    [Migration("20230122014212_dis")]
+    partial class dis
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -187,6 +187,29 @@ namespace Persistence.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Discount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<double>("Disc")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Multiplier")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Discounts");
+                });
+
             modelBuilder.Entity("Domain.Entities.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -305,6 +328,9 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("RealPrice")
+                        .HasColumnType("float");
+
                     b.Property<double>("RecievedStockAmount")
                         .HasColumnType("float");
 
@@ -323,6 +349,32 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ProductDiscount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
+
+                    b.Property<int>("IDProduct")
+                        .HasColumnType("int");
+
+                    b.Property<int>("discountId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IDProduct");
+
+                    b.HasIndex("discountId");
+
+                    b.ToTable("ProductDiscounts");
                 });
 
             modelBuilder.Entity("Domain.Entities.ProductFbaServices", b =>
@@ -443,6 +495,25 @@ namespace Persistence.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ProductDiscount", b =>
+                {
+                    b.HasOne("Domain.Entities.Product", "product")
+                        .WithMany()
+                        .HasForeignKey("IDProduct")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Discount", "discount")
+                        .WithMany()
+                        .HasForeignKey("discountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("discount");
+
+                    b.Navigation("product");
                 });
 
             modelBuilder.Entity("Domain.Entities.ProductFbaServices", b =>

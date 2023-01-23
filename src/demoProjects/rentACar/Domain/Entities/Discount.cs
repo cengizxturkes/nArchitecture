@@ -27,6 +27,6 @@ namespace Domain.Entities
         public double Disc { get; set; }
         public string Name { get; set; }
 
-        public bool Multiplier { get; set; }
+        public int Multiplier { get; set; }
     }
 }

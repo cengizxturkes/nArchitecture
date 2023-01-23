@@ -25,6 +25,7 @@ namespace WebAPI.Controllers
         IAmazonService amazonService;
         IDiscountRepository discountRepository;
         IProductDiscountRepository productDiscountRepository;
+        IProductRepository productRepository;
         BaseDbContext context;
         public ProductController(IAmazonService amazonService, IDiscountRepository discountRepository, IProductDiscountRepository productDiscountRepository, BaseDbContext context)
         {
@@ -84,6 +85,7 @@ namespace WebAPI.Controllers
             }
             return Ok(disclist);
         }
+     
 
         [HttpPost("updateDisc")]
         public async Task<IActionResult> updateProductDisc(ProdcutUpdateViewModel updateViewModel)
@@ -98,6 +100,8 @@ namespace WebAPI.Controllers
 
             await context.SaveChangesAsync();
             context.Entry(product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            double newprice = 0;
+            double constprice = product.RealPrice;
             foreach (var item in updateViewModel.Discs)
             {
                 if (item.added)
@@ -109,25 +113,39 @@ namespace WebAPI.Controllers
                     discItem.discount = disc;
 
 
-
+                    
                     discItem.Amount = disc.Disc;
-                    if (disc.Multiplier)
+                    if (disc.Multiplier==0)
                     {
-
-                        product.ExpectedTotalPrice = product.RealPrice * disc.Disc;
+                        newprice = (product.ExpectedStockAmount * disc.Disc)+newprice;
                     }
-                    else
+                    //else if
+                    //{
+                    //    newprice =  (product.ExpectedStockAmount+disc.Disc) +product.RealPrice;
+                    //}
+                    if (disc.Multiplier == 1)
                     {
-                        product.ExpectedTotalPrice = (product.ExpectedStockAmount + disc.Disc) + product.RealPrice;
+                        newprice = (product.Box * disc.Disc) + newprice;
+
+                    }
+                    if (disc.Multiplier == 2)
+                    {
+                        newprice = (product.ExpectedStockAmount/2 * disc.Disc) + newprice;
+
+                    }
+                    if (disc.Multiplier == 3)
+                    {
+                        newprice = (product.Box  * disc.Disc) + newprice;
 
                     }
                     context.Entry(discItem.discount).State = EntityState.Unchanged;
                     context.Add(discItem);
+                    constprice = newprice +product.RealPrice;
                 }
             }
+            product.ExpectedTotalPrice = constprice;
             context.Update(product);
             await context.SaveChangesAsync();
-
             return Ok(updateViewModel);
         }
 

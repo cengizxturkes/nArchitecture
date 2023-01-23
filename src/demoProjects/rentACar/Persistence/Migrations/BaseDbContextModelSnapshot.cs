@@ -196,8 +196,8 @@ namespace Persistence.Migrations
                     b.Property<double>("Disc")
                         .HasColumnType("float");
 
-                    b.Property<bool>("Multiplier")
-                        .HasColumnType("bit");
+                    b.Property<int>("Multiplier")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -307,6 +307,9 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Box")
+                        .HasColumnType("int");
+
                     b.Property<double>("Desi")
                         .HasColumnType("float");
 
@@ -318,6 +321,9 @@ namespace Persistence.Migrations
 
                     b.Property<double>("Height")
                         .HasColumnType("float");
+
+                    b.Property<bool>("IsOrder")
+                        .HasColumnType("bit");
 
                     b.Property<double>("Length")
                         .HasColumnType("float");
@@ -359,9 +365,6 @@ namespace Persistence.Migrations
 
                     b.Property<double>("Amount")
                         .HasColumnType("float");
-
-                    b.Property<int>("IDDiscount")
-                        .HasColumnType("int");
 
                     b.Property<int>("IDProduct")
                         .HasColumnType("int");

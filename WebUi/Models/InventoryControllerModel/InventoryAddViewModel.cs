@@ -15,5 +15,7 @@
         public int ActualTotalPrice { get; set; }
         public int ExpectedStockAmount { get; set; }
         public int RecievedStockAmount { get; set; }
+        public int Box { get; set; }
+
     }
 }

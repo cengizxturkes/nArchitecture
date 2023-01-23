@@ -4,7 +4,7 @@
 
 namespace Persistence.Migrations
 {
-    public partial class areas : Migration
+    public partial class addedbox : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

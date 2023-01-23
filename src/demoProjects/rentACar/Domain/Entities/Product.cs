@@ -1,5 +1,6 @@
 ﻿using Core.Persistence.Repositories;
 using Core.Security.Entities;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -25,6 +26,10 @@ namespace Domain.Entities
         public double ActualTotalPrice { get; set; }
         public double ExpectedStockAmount { get; set; }
         public double RecievedStockAmount { get; set; }
+        public int Box { get; set; }
+        public bool IsOrder { get; set; }= false;
+        [NotMapped]
+        public IFormFile PdfUrl { get; set; }
 
         //context nerde
 

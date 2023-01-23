@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 
-<div class="app-content main-content">
+<div class="app-content main-content" style="background-color:white">
     <div class="side-app main-container">
         <div data-v-0d352060="" class="card-body">
             <!----><!---->
@@ -15,6 +15,8 @@
                             <tr data-v-0d352060="">
                                 <th data-v-0d352060="" scope="col">SERVICES</th>
                                 <th data-v-0d352060="" scope="col" style="text-align: right;">COSTS</th>
+                            </tr>
+                            <tr>
                             </tr>
                         </thead>
                         <tbody data-v-0d352060="" class="tablebodydisc">
@@ -169,7 +171,7 @@
                                 </td>
                             </tr>
 *@
-                            <tr data-v-0d352060="">
+                            @*<tr data-v-0d352060="">
                                 <th data-v-0d352060="" scope="row">Poly Bagging</th>
                                 <td data-v-0d352060="" style="text-align: right;">$ 0.00</td>
 
@@ -180,7 +182,7 @@
                             <tr data-v-0d352060="">
                                 <th data-v-0d352060="" scope="row">Bundle</th>
                                 <td data-v-0d352060="" style="text-align: right;">$ 0.00</td>
-
+*@
 
 
 
@@ -309,11 +311,7 @@
     </div>
     <div data-v-0d352060="" class="row mt-1" style="text-align: right;">
         <div data-v-0d352060="" class="col-md-6"></div>
-        <div data-v-0d352060="" class="col-md-6">
-            <button data-v-0d352060="" type="button"
-                    class="btn btn-danger">
-                İptal
-            </button>&nbsp;
+       
 
             @*
             <form asp-action="EditFnsku" asp-controller="EditProduct">
@@ -321,9 +319,11 @@
             Gönderiyi Tamamla
             </button>
             </form><br data-v-0d352060=""><br data-v-0d352060=""> <!---->*@
-            <div class="btn btn-success" onclick="updateProduct()">
+          <form asp-action="Index" asp-controller="Inventory">
+            <button class="btn btn-success" onclick="updateProduct()">
                 Gönderiyi Tamamla
-            </div>
+                </button>
+            </form>
         </div>
     </div>
     <div data-v-0d352060="" id="2" class="card-code collapse" style="display: none;">
@@ -355,7 +355,7 @@
             url: 'http://localhost:5147/api/Product/updateDisc',
             data: JSON.stringify(data),
             success: function (data) {
-                location.reload();
+                //location.reload();
             },
             contentType: "application/json",
             dataType: 'json'
@@ -380,7 +380,7 @@
                     var htmls = `<tr>
                                                                               <th data-v-0d352060="" scope="row">`+ item.discount.name + `</th>
 
-                                                                                        <td data-v-0d352060="" style="text-align: right;">`+ ((item.discount.multiplier ? '% ':'$ ') + item.discount.disc).replace("1.", "").replace("0.", "") + `</td>
+                                                                                        <td data-v-0d352060="" style="text-align: right;">`+ ((item.discount.multiplier ? '$':'$') + item.discount.disc).replace("1.", "0.") + `</td>
                                                                                 <td class="material-switch pull-right">
 
                                                                                                     <input `+ (item.added ? 'checked' : '') + ` id="disc` + item.discount.id + `" name="disc` + item.discount.id + ` " class="someSwitchOption disccheck" data-discid="` + item.discount.id + ` " type="checkbox"/>
@@ -395,6 +395,8 @@
         });
 
     });
+    
+    
 </script>
 
 

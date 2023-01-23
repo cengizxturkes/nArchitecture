@@ -16,14 +16,14 @@ namespace WebUi.Controllers
 {
     public class LoginController : BaseController
     {
-private readonly BaseDbContext _context;
+        private readonly BaseDbContext _context;
         public LoginController(BaseDbContext context)
         {
             _context = context;
         }
         public IActionResult Index()
         {
-           
+
             return View();
         }
         [HttpPost]
@@ -34,14 +34,14 @@ private readonly BaseDbContext _context;
             var confirmstatus = _context.Users.Where(x => x.Email == usermail).Select(y => y.IsConfirmation).FirstOrDefault();
             var response = await _client.PostAsJsonAsync("Auth/Login", loginViewModel);
 
-            if (response.IsSuccessStatusCode&&confirmstatus == 1)
+            if (response.IsSuccessStatusCode && confirmstatus == 1)
             {
-                
-        //var body =await response.Content.ReadFromJsonAsync<LoginResponse>();
-        var body=await response.Content.ReadAsStringAsync();
-                LoginResponse loginResponse=JsonConvert.DeserializeObject<LoginResponse>(body);
-                var Firstname =loginViewModel.FirstName;
-                var Lastname=loginViewModel.LastName;
+
+                //var body =await response.Content.ReadFromJsonAsync<LoginResponse>();
+                var body = await response.Content.ReadAsStringAsync();
+                LoginResponse loginResponse = JsonConvert.DeserializeObject<LoginResponse>(body);
+                var Firstname = loginViewModel.FirstName;
+                var Lastname = loginViewModel.LastName;
                 var claims = new List<Claim>
                     {
                         new Claim(ClaimTypes.Name,loginViewModel.Email),
@@ -60,13 +60,13 @@ private readonly BaseDbContext _context;
 
                 return RedirectToAction("Index", "Dashboard");
             }
-            else if(response.IsSuccessStatusCode && confirmstatus == 0)
+            else if (response.IsSuccessStatusCode && confirmstatus == 0)
             {
                 Response.WriteAsync("<script>swal('Hi')</script>");
-                
-                
+
+
             }
-            return View("Index",loginViewModel);
+            return View("Index", loginViewModel);
 
         }
         //[AllowAnonymous]
@@ -74,7 +74,7 @@ private readonly BaseDbContext _context;
         //[ValidateAntiForgeryToken]
         //public async Task<IActionResult> Login()
         //{
-            
+
 
         //        //var body =await response.Content.ReadFromJsonAsync<LoginResponse>();
 
@@ -96,11 +96,11 @@ private readonly BaseDbContext _context;
 
 
         //        return RedirectToAction("Index", "Dashboard");
-            
+
 
         //}
 
-      
+
 
     }
 }

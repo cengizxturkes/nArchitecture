@@ -485,9 +485,9 @@
                                                     <td aria-colindex="4" role="cell" class="">USA</td>
                                                     <td aria-colindex="6" role="cell" class="">@item.TotalPrice</td>
                                                     <td aria-colindex="7" role="cell" class="">@item.Weight</td>
-                                                    <td aria-colindex="8" role="cell" class="">@item.TotalPrice</td>
-                                                    <td aria-colindex="9" role="cell" class=""></td>
-                                                    <td aria-colindex="10" role="cell" class=""></td>
+                                                    <td aria-colindex="8" role="cell" class="">@item.Height</td>
+                                                    <td aria-colindex="9" role="cell" class="">@item.ExpectedStockAmount</td>
+                                                    <td aria-colindex="10" role="cell" class="">@item.ExpectedTotalPrice$</td>
                                                 </tr>
                                                 }
 
@@ -511,7 +511,7 @@
                                 Ürün Sil
                             </button>
                         </div>
-                        <form asp-controller="Inventory" asp-action="NewShipmentFba" class="col-6"
+                        <form asp-controller="NewShipmentFba" asp-action="Index" class="col-6"
                               style="text-align: right;">
                             <button type="submit" class="btn btn-success">
                                 Gönderi Oluştur

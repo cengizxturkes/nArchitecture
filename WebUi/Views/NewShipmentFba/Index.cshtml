@@ -4,6 +4,8 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
+<html>
+    <body>
 <div class="app-content main-content">
     <div class="side-app main-container">
         <div class="content-wrapper">
@@ -84,22 +86,38 @@
                                                         <!---->
                                                         <tr role="row" class="">
 
-                                                            @foreach (var item in (List<Product>)ViewBag.Orders)
-                                                            {
+                                        @foreach (var item in (List<Product>)ViewBag.Orders)
+                                                {
 
 
-                                                            <tr>
-                                                                <td aria-colindex="2" role="cell" class=""></td>
-                                                                <td aria-colindex="3" role="cell" class="">@item.AsinCode</td>
-                                                                <td aria-colindex="4" role="cell" class="">@item.Name</td>
-                                                                <td aria-colindex="5" role="cell" class="">USA</td>
-                                                                <td aria-colindex="6" role="cell" class="">20$</td>
-                                                                <td aria-colindex="7" role="cell" class="">@item.TotalPrice</td>
-                                                                <td aria-colindex="8" role="cell" class="">@item.Weight</td>
-                                                                <td aria-colindex="9" role="cell" class="">@item.TotalPrice</td>
-                                                                <td aria-colindex="10" role="cell" class=""></td>
-                                                            </tr>
-                                                            }
+                                                <tr>
+                                                        <td>
+                                                            <form asp-action="Index" asp-controller="EditProduct" >
+                                                                <a class="btn btn-info" id=@item.Id type="submit" asp-route-id="@item.Id" asp-action="Index" asp-controller="EditProduct">Edit</a>
+
+                                                    </form>
+                                                        @*<script>
+                                                            $("#@item.Id").click(function(){
+                                                                
+                                                                   
+                                                            });
+
+                                                               
+                                                                
+                                                        </script>*@
+                                                       
+                                                    </td>
+                                                    <td aria-colindex="2" role="cell" class="">@item.Id</td>
+                                                    <td aria-colindex="2" role="cell" class="">@item.AsinCode</td>
+                                                    <td aria-colindex="3" role="cell" class="">@item.Name</td>
+                                                    <td aria-colindex="4" role="cell" class="">USA</td>
+                                                    <td aria-colindex="6" role="cell" class="">@item.TotalPrice</td>
+                                                    <td aria-colindex="7" role="cell" class="">@item.Weight</td>
+                                                    <td aria-colindex="8" role="cell" class="">@item.Height</td>
+                                                    <td aria-colindex="9" role="cell" class="">@item.ExpectedStockAmount</td>
+                                                    <td aria-colindex="10" role="cell" class="">@item.ExpectedTotalPrice$</td>
+                                                </tr>
+                                                }
 
 
                                                         <!----><!---->
@@ -160,7 +178,7 @@
                                                     class="btn btn-outline-dark disabled">
                                                 <span data-v-0d352060=""
                                                       class="align-middle">
-                                                    $ 0.00
+                                                    @ViewBag.ProductTotalPrice
                                                 </span>
                                             </button>
                                         </div>
@@ -174,15 +192,9 @@
                             </div>
                         </div><!----><!---->
                     </div>
-                    <div data-v-0d352060="" class="card">
-                        <!----><!---->
-                        <div data-v-0d352060="" class="card-header">
-                            <div data-v-0d352060="">
-                                <h4 data-v-0d352060="" class="card-title"></h4> <!---->
-                            </div> <i data-v-0d352060="" aria-expanded="true" aria-controls="2"
-                                      class="code-toggler feather icon-code cursor-pointer"></i>
-                        </div>
-                      @*  <div data-v-0d352060="" class="card-body">
+                    <tbody data-v-0d352060="" class="tablebodydisc">
+
+  </tbody>                      @*  <div data-v-0d352060="" class="card-body">
                             <!----><!---->
                             <div data-v-0d352060="" class="row">
                                 <div data-v-0d352060="" class="col-md-6">
@@ -314,3 +326,36 @@
         </div>
     </div>
 </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var tablebodydisc = $(".tablebodydisc");
+
+            $.ajax({
+                async: true,
+                data: { AdditionalLabeling: 1 },
+                type: "GET",
+                dataType: 'json',
+                //url: "http://localhost:5147/api/Product/getdisc?ProductID=" + @ViewBag.ProductID,
+                beforeSend: function () {
+                },
+                success: function (data) {
+                    //for (var i = 0; i < data.length; i++) {
+                    //    var item = data[i];
+                    //    console.log(item);
+                        var htmls = `<div class="form-group">
+                                                    <label for="form-label" class="form-label">Bootstrap's Custom File Input</label>
+                                                        <input class="form-control" type="file">
+                                                </div>`;
+
+                        tablebodydisc.prepend(htmls);
+                    }
+
+                }
+            });
+
+        });
+
+       
+    </script>
+</body>
+</html>

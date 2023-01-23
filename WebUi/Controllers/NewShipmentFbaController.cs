@@ -26,11 +26,12 @@ namespace WebUi.Controllers
 			
 			
 			double ProductTotalDimensionalWeight = _context.Products.Where(x => x.UserId == userId).Select(x => x.Weight).ToList().Sum()+1;
-			double ProductTotalActualWeight = _context.Products.Where(x => x.UserId == userId).Select(x => x.Weight).ToList().Sum();
+            double ProductTotalActualWeight = _context.Products.Where(x => x.UserId == userId).Select(x => x.Weight).ToList().Sum();
+            double ProductTotalPrice = _context.Products.Where(x => x.UserId == userId).Select(x => x.ExpectedTotalPrice).ToList().Sum();
 
             ViewBag.ProductTotalActualWeight = ProductTotalActualWeight;
 			ViewBag.ProductTotalDimensionalWeight = ProductTotalDimensionalWeight;
-
+			ViewBag.ProductTotalPrice = ProductTotalPrice;
             ViewBag.ProductAmount = productAmount;
 			ViewBag.Orders=products;
             ViewBag.LastName = userLastName;

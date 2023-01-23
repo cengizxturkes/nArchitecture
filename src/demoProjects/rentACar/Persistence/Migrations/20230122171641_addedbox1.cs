@@ -4,23 +4,23 @@
 
 namespace Persistence.Migrations
 {
-    public partial class discountmultiplier : Migration
+    public partial class addedbox1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<bool>(
-                name: "Multiplier",
-                table: "ProductDiscounts",
-                type: "bit",
+            migrationBuilder.AddColumn<int>(
+                name: "Box",
+                table: "Products",
+                type: "int",
                 nullable: false,
-                defaultValue: false);
+                defaultValue: 0);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Multiplier",
-                table: "ProductDiscounts");
+                name: "Box",
+                table: "Products");
         }
     }
 }

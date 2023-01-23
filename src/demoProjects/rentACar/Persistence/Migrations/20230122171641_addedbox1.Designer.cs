@@ -12,8 +12,8 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(BaseDbContext))]
-    [Migration("20230113133420_areas")]
-    partial class areas
+    [Migration("20230122171641_addedbox1")]
+    partial class addedbox1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -187,6 +187,29 @@ namespace Persistence.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Discount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<double>("Disc")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Multiplier")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Discounts");
+                });
+
             modelBuilder.Entity("Domain.Entities.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -279,22 +302,43 @@ namespace Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<double>("ActualTotalPrice")
+                        .HasColumnType("float");
+
                     b.Property<string>("AsinCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Box")
+                        .HasColumnType("int");
+
                     b.Property<double>("Desi")
                         .HasColumnType("float");
 
+                    b.Property<double>("ExpectedStockAmount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ExpectedTotalPrice")
+                        .HasColumnType("float");
+
                     b.Property<double>("Height")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Length")
                         .HasColumnType("float");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("RealPrice")
+                        .HasColumnType("float");
+
+                    b.Property<double>("RecievedStockAmount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -308,6 +352,92 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ProductDiscount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
+
+                    b.Property<int>("IDProduct")
+                        .HasColumnType("int");
+
+                    b.Property<int>("discountId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IDProduct");
+
+                    b.HasIndex("discountId");
+
+                    b.ToTable("ProductDiscounts");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ProductFbaServices", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<decimal>("AdditionalLabeling")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Boxing")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("BubbleWrapping")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Bundle")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("FbaBoxLabeling")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("FnskuLabeling")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("GoodsAcceptance")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("LabelDisassembly")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Multipack")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PaletInOut")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Palletizing")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("PolyBagging")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("ReBoxing")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Shipping")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductFbaServices");
                 });
 
             modelBuilder.Entity("Core.Security.Entities.RefreshToken", b =>
@@ -366,6 +496,36 @@ namespace Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ProductDiscount", b =>
+                {
+                    b.HasOne("Domain.Entities.Product", "product")
+                        .WithMany()
+                        .HasForeignKey("IDProduct")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Discount", "discount")
+                        .WithMany()
+                        .HasForeignKey("discountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("discount");
+
+                    b.Navigation("product");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ProductFbaServices", b =>
+                {
+                    b.HasOne("Domain.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Product");
                 });

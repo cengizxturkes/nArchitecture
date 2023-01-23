@@ -14,6 +14,7 @@ namespace WebUi.Controllers
 {
 	public class InventoryController : BaseController
 	{
+        BaseDbContext context;
         private readonly BaseDbContext _context;
         public InventoryController(BaseDbContext context)
         {
@@ -38,12 +39,12 @@ namespace WebUi.Controllers
             ViewBag.Orders = fundList;
             ViewBag.name = userName;
             ViewBag.v = usermail;
-           //ViewBag.price = userProductPrice;
-           // ViewBag.width = userProductWidth;
-           // ViewBag.height = userProductHeight;
-           // ViewBag.lenght= userProductLenght;
-           // ViewBag.weight= userProductWeight;
-
+            //ViewBag.price = userProductPrice;
+            // ViewBag.width = userProductWidth;
+            // ViewBag.height = userProductHeight;
+            // ViewBag.lenght= userProductLenght;
+            // ViewBag.weight= userProductWeight;
+            
             return View();
 		}
         public async Task<IActionResult> InventoryProduct(InventoryAddViewModel iavm)
@@ -66,7 +67,20 @@ namespace WebUi.Controllers
             ViewBag.v = usermail;
             ViewBag.UserId=userId;
             iavm.UserId = userId;
-            iavm.Desi = iavm.Width * iavm.Height * iavm.Length/3000;
+            iavm.Desi = (iavm.Width * iavm.Height * iavm.Length/3000)*iavm.ExpectedStockAmount;
+                    if (iavm.Desi <25)
+            {
+                iavm.Box = 1;
+            }
+            else if (iavm.Desi >= 25 && iavm.Desi < 50)
+            {
+                iavm.Box = 2;
+            }
+            else if (iavm.Desi >= 50 && iavm.Desi < 75)
+            {
+                iavm.Box = 3;
+            }
+           
             iavm.ExpectedTotalPrice = iavm.TotalPrice * iavm.ExpectedStockAmount;
             string data = JsonConvert.SerializeObject(fundList);
             TempData["ProductList"] = data;
@@ -107,7 +121,8 @@ namespace WebUi.Controllers
             ViewBag.name = userName;
             ViewBag.v = usermail;
             ViewBag.order = userProductName;
-            
+            BaseDbContext context;
+
 
             return View("Index","NewShipmentFba");
         }
