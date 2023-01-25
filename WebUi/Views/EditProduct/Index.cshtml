@@ -19,7 +19,7 @@
                             <tr>
                             </tr>
                         </thead>
-                        <tbody data-v-0d352060="" class="tablebodydisc">
+                        <tbody  class="tablebodydisc">
 
                             @*<tr data-v-0d352060="">
                             <th data-v-0d352060="" scope="row">FNSKU Labeling</th>
@@ -127,70 +127,70 @@
                             <th data-v-0d352060="" scope="row">Delivering to Carrier</th>
                             <td data-v-0d352060="" style="text-align: right;">$ 2</td>
                             </tr>*@
-                           @* <tr data-v-0d352060="">
-                                <th data-v-0d352060="" scope="row">Label Disassembly</th>
-                                <td data-v-0d352060="" style="text-align: right;">Free</td>
+                            @* <tr data-v-0d352060="">
+                            <th data-v-0d352060="" scope="row">Label Disassembly</th>
+                            <td data-v-0d352060="" style="text-align: right;">Free</td>
 
                             </tr>
                             <tr data-v-0d352060="">
-                                <th data-v-0d352060="" scope="row">Additional Labeling</th>
-                                <td data-v-0d352060="" style="text-align: right;">0.25</td>
-                                <td class="material-switch pull-right">
+                            <th data-v-0d352060="" scope="row">Additional Labeling</th>
+                            <td data-v-0d352060="" style="text-align: right;">0.25</td>
+                            <td class="material-switch pull-right">
 
-                                    <input id="AdditionalLabeling" name="someSwitchOption001" class="someSwitchOption" type="checkbox" />
+                            <input id="AdditionalLabeling" name="someSwitchOption001" class="someSwitchOption" type="checkbox" />
 
-                                    <label for="AdditionalLabeling" class="label-success"></label>
-                                    <script>
-                                        document.getElementById("AdditionalLabeling").addEventListener("change", function () {
-                                            if (this.checked) {
-                                                alert("açık");
-                                                //document.getElementById("priceFnsku").style.display="inline";
-                                                $.ajax({
-                                                    async: true,
-                                                    data: { AdditionalLabeling: 1 },
-                                                    type: "POST",
-                                                    dataType: 'json',
-                                                    url: "/EditProduct/EditFnsku/",
-                                                    beforeSend: function () {
-                                                    },
-                                                    success: function (data) {
-                                                        if (data.success) {
-                                                            console.log(data);
-                                                        } else {
+                            <label for="AdditionalLabeling" class="label-success"></label>
+                            <script>
+                            document.getElementById("AdditionalLabeling").addEventListener("change", function () {
+                            if (this.checked) {
+                            alert("açık");
+                            //document.getElementById("priceFnsku").style.display="inline";
+                            $.ajax({
+                            async: true,
+                            data: { AdditionalLabeling: 1 },
+                            type: "POST",
+                            dataType: 'json',
+                            url: "/EditProduct/EditFnsku/",
+                            beforeSend: function () {
+                            },
+                            success: function (data) {
+                            if (data.success) {
+                            console.log(data);
+                            } else {
 
-                                                        }
-                                                    }
-                                                });
-                                            }
-                                        });
-
-
+                            }
+                            }
+                            });
+                            }
+                            });
 
 
-                                    </script>
-                                </td>
+
+
+                            </script>
+                            </td>
                             </tr>
-*@
+                            *@
                             @*<tr data-v-0d352060="">
-                                <th data-v-0d352060="" scope="row">Poly Bagging</th>
-                                <td data-v-0d352060="" style="text-align: right;">$ 0.00</td>
+                            <th data-v-0d352060="" scope="row">Poly Bagging</th>
+                            <td data-v-0d352060="" style="text-align: right;">$ 0.00</td>
 
 
 
 
                             </tr>
                             <tr data-v-0d352060="">
-                                <th data-v-0d352060="" scope="row">Bundle</th>
-                                <td data-v-0d352060="" style="text-align: right;">$ 0.00</td>
-*@
+                            <th data-v-0d352060="" scope="row">Bundle</th>
+                            <td data-v-0d352060="" style="text-align: right;">$ 0.00</td>
+                            *@
 
 
 
 
-                                @*<tr data-v-0d352060="">
-                                <th data-v-0d352060="" scope="row">Expected Total Cost</th>
-                                <td data-v-0d352060="" style="text-align: right;">@ViewBag.ExpectedTotalCost </td>
-                                </tr>*@
+                            @*<tr data-v-0d352060="">
+                            <th data-v-0d352060="" scope="row">Expected Total Cost</th>
+                            <td data-v-0d352060="" style="text-align: right;">@ViewBag.ExpectedTotalCost </td>
+                            </tr>*@
                             </tr>
 
 
@@ -200,6 +200,40 @@
 
             </div>
         </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+                <td>Please Add Your Fnsku and BoxLabel Pdf.</td>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-8">
+                    <input id="productpdf" type="file" multiple class="form-control" accept="application/pdf" />
+                   
+                </div> <div class="col-4">
+                <button id="pdfsave" class="btn btn-success" onclick="uploadPdf()" style="justify-content:center;">
+                    Save Pdf
+                </button>
+                </div>
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                    @for (int i = 0; i < ViewBag.Pdfs.Count; i++)
+                    {
+                        <div class="col-md-6">
+                            <a target="_blank" href="@ViewBag.Pdfs[i].FilePath">
+                               Pdf: @(i+1)
+                            </a> <button class="btn btn-success" id="@ViewBag.ProductID" onclick="deletePdf()">Delete</button>
+                        </div>
+                       
+                    }
+
+                </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
     <div data-v-0d352060="" class="card">
         <!----><!---->
@@ -311,28 +345,45 @@
     </div>
     <div data-v-0d352060="" class="row mt-1" style="text-align: right;">
         <div data-v-0d352060="" class="col-md-6"></div>
-       
 
-            @*
-            <form asp-action="EditFnsku" asp-controller="EditProduct">
-            <button type="submit" class="btn btn-success">
-            Gönderiyi Tamamla
-            </button>
-            </form><br data-v-0d352060=""><br data-v-0d352060=""> <!---->*@
-          <form asp-action="Index" asp-controller="Inventory">
+
+        @*
+        <form asp-action="EditFnsku" asp-controller="EditProduct">
+        <button type="submit" class="btn btn-success">
+        Gönderiyi Tamamla
+        </button>
+        </form><br data-v-0d352060=""><br data-v-0d352060=""> <!---->*@
+        <form asp-action="Index" asp-controller="Inventory">
             <button class="btn btn-success" onclick="updateProduct()">
                 Gönderiyi Tamamla
-                </button>
-            </form>
-        </div>
-    </div>
-    <div data-v-0d352060="" id="2" class="card-code collapse" style="display: none;">
-        <div data-v-0d352060="" class="p-1"></div>
-        <pre data-v-0d352060=""
-             class="language-markup"><code data-v-0d352060="" class="language-markup"></code></pre>
+            </button>
+        </form>
     </div>
 </div>
+<div data-v-0d352060="" id="2" class="card-code collapse" style="display: none;">
+    <div data-v-0d352060="" class="p-1"></div>
+    <pre data-v-0d352060=""
+         class="language-markup"><code data-v-0d352060="" class="language-markup"></code></pre>
+</div>
+</div>
 <script>
+    const toBase64 = file => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+    function getExtension(path) {
+        var basename = path.split(/[\\/]/).pop(),  // extract file name from full path ...
+            // (supports `\\` and `/` separators)
+            pos = basename.lastIndexOf(".");       // get last position of `.`
+
+        if (basename === "" || pos < 1)            // if file name is empty or ...
+            return "";                             //  `.` not found (-1) or comes first (0)
+
+        return basename.slice(pos + 1);            // extract extension ignoring `.`
+    }
+   
     function updateProduct() {
         var discChecs = $(".disccheck");
         var data = { "ProductID": @ViewBag.ProductID};
@@ -378,15 +429,15 @@
                     var item = data[i];
                     console.log(item);
                     var htmls = `<tr>
-                                                                              <th data-v-0d352060="" scope="row">`+ item.discount.name + `</th>
+                                                                                  <th data-v-0d352060="" scope="row">`+ item.discount.name + `</th>
 
-                                                                                        <td data-v-0d352060="" style="text-align: right;">`+ ((item.discount.multiplier ? '$':'$') + item.discount.disc).replace("1.", "0.") + `</td>
-                                                                                <td class="material-switch pull-right">
+                                                                                            <td data-v-0d352060="" style="text-align: right;">`+ ((item.discount.multiplier ? '$' : '$') + item.discount.disc).replace("1.", "0.") + `</td>
+                                                                                    <td class="material-switch pull-right">
 
-                                                                                                    <input `+ (item.added ? 'checked' : '') + ` id="disc` + item.discount.id + `" name="disc` + item.discount.id + ` " class="someSwitchOption disccheck" data-discid="` + item.discount.id + ` " type="checkbox"/>
+                                                                                                        <input `+ (item.added ? 'checked' : '') + ` id="disc` + item.discount.id + `" name="disc` + item.discount.id + ` " class="someSwitchOption disccheck" data-discid="` + item.discount.id + ` " type="checkbox"/>
 
-                                                                                    <label for="disc`+ item.discount.id + `" class="label-success"></label>
-                                                                                    </td></tr>`;
+                                                                                        <label for="disc`+ item.discount.id + `" class="label-success"></label>
+                                                                                        </td></tr>`;
 
                     tablebodydisc.prepend(htmls);
                 }
@@ -395,8 +446,52 @@
         });
 
     });
-    
-    
+   async function uploadPdf() {
+        var fileinput = $("#productpdf")[0];
+        var files = fileinput.files;
+        console.log(files);
+
+        var formData = {};
+        formData.files = [];
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            formData.files.push(
+                {
+                    "idfile": 1,
+                    "file": await toBase64(file),
+                    "name": getExtension(file.name)
+                });
+        }
+        formData.ProductId = @ViewBag.ProductID;
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:5147/api/Product/AddPdf',
+            data: JSON.stringify(formData),
+            success: function (data) {
+                location.reload();
+            },
+            contentType: "application/json",
+            dataType: 'json'
+        });
+
+    }
+
+    async function deletePdf() {
+        var data = @ViewBag.ProductID;
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:5147/api/Product/DeletePdf',
+            data: JSON.stringify(data),
+            success: function (data) {
+                location.reload();
+            },
+            contentType: "application/json",
+            dataType: 'json'
+        });
+
+    }
 </script>
 
 

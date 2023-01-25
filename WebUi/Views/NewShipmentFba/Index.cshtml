@@ -192,9 +192,9 @@
                             </div>
                         </div><!----><!---->
                     </div>
-                    <tbody data-v-0d352060="" class="tablebodydisc">
-
-  </tbody>                      @*  <div data-v-0d352060="" class="card-body">
+                    <tbody  class="tablebodydisc">
+</tbody>           
+@*  <div data-v-0d352060="" class="card-body">
                             <!----><!---->
                             <div data-v-0d352060="" class="row">
                                 <div data-v-0d352060="" class="col-md-6">
@@ -327,33 +327,8 @@
     </div>
 </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var tablebodydisc = $(".tablebodydisc");
-
-            $.ajax({
-                async: true,
-                data: { AdditionalLabeling: 1 },
-                type: "GET",
-                dataType: 'json',
-                //url: "http://localhost:5147/api/Product/getdisc?ProductID=" + @ViewBag.ProductID,
-                beforeSend: function () {
-                },
-                success: function (data) {
-                    //for (var i = 0; i < data.length; i++) {
-                    //    var item = data[i];
-                    //    console.log(item);
-                        var htmls = `<div class="form-group">
-                                                    <label for="form-label" class="form-label">Bootstrap's Custom File Input</label>
-                                                        <input class="form-control" type="file">
-                                                </div>`;
-
-                        tablebodydisc.prepend(htmls);
-                    }
-
-                }
-            });
-
-        });
+        
+        
 
        
     </script>

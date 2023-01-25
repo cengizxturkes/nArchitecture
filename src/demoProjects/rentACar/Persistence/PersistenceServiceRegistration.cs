@@ -38,6 +38,7 @@ namespace Persistence
             services.AddScoped<IOperationClaimRepository, OperationClaimRepository>();
             services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
             services.AddScoped<IProductFbaServicesRepository, ProductFbaServicesRepository>();
+            services.AddScoped<IProductPdfRepository, ProductPdfRepository>();
 
             return services;
         }

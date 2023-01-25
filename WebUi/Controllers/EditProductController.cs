@@ -10,13 +10,19 @@ using WebUi.Models.AuthControllerModel;
 using WebUi.Models.TokenModels;
 using WebUi.ServicesPrice;
 using System.Linq;
+using Application.Services.Repositories;
 
 namespace WebUi.Controllers
 {
     public class EditProductController : BaseController
     {
         private readonly BaseDbContext _context;
-        public EditProductController(BaseDbContext context)
+
+
+
+
+        public EditProductController(BaseDbContext context
+)
         {
             _context = context;
         }
@@ -97,7 +103,7 @@ namespace WebUi.Controllers
             ViewBag.ProductID = SelectedProductList.First().Id;
             //bu neden liste mk tek ürün ok mu id'yye ait
             //hayır çok ürün olabilir
-
+            ViewBag.Pdfs=_context.ProductPdfs.Where(x=>x.IDProduct== SelectedProductList.First().Id).ToList();
 
             return View(fundList);
 
@@ -124,6 +130,7 @@ namespace WebUi.Controllers
 
             return View("Index",ExpectedTotalProductPrice);
         }
+        
 
     }
 }

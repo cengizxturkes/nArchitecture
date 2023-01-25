@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using WebUi.Models.AuthControllerModel;
 using WebUi.Models.InventoryControllerModel;
 using WebUi.Models.TokenModels;
-
+using Application.Services.Amazon;
 namespace WebUi.Controllers
 {
 	public class InventoryController : BaseController
@@ -49,8 +49,8 @@ namespace WebUi.Controllers
 		}
         public async Task<IActionResult> InventoryProduct(InventoryAddViewModel iavm)
         {
-            
 
+            
             var usermail = User.Identity.Name;
             
             var userName = _context.Users.Where(x => x.Email == usermail).Select(y => y.FirstName).FirstOrDefault();
@@ -62,7 +62,6 @@ namespace WebUi.Controllers
             List<Product> fundList = _context.Products.Where(x => x.Id == userId).ToList();
 
             ViewBag.Orders = fundList;
-            
             ViewBag.name = userName;
             ViewBag.v = usermail;
             ViewBag.UserId=userId;

@@ -13,6 +13,7 @@ public class User : Entity
     public bool Status { get; set; }
     public AuthenticatorType AuthenticatorType { get; set; }
     public int IsConfirmation { get; set; } = 0;
+    public bool IsAdmin { get; set; } = false;
 
     public virtual ICollection<UserOperationClaim> UserOperationClaims { get; set; }
     public virtual ICollection<RefreshToken> RefreshTokens { get; set; }

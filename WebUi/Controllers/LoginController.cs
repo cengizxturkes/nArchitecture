@@ -32,9 +32,10 @@ namespace WebUi.Controllers
         {
             var usermail = loginViewModel.Email;
             var confirmstatus = _context.Users.Where(x => x.Email == usermail).Select(y => y.IsConfirmation).FirstOrDefault();
+                var isAdmin = _context.Users.Where(x => x.Email == usermail).Select(y => y.IsAdmin).FirstOrDefault();
             var response = await _client.PostAsJsonAsync("Auth/Login", loginViewModel);
 
-            if (response.IsSuccessStatusCode && confirmstatus == 1)
+            if (response.IsSuccessStatusCode && confirmstatus == 1&&isAdmin==false)
             {
 
                 //var body =await response.Content.ReadFromJsonAsync<LoginResponse>();

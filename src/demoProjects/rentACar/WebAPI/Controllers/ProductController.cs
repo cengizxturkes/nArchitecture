@@ -1,6 +1,7 @@
 ﻿using Application.Features.Models.Models;
 using Application.Features.Models.Queries.GetListModelByDynamic;
 using Application.Features.ProductDiscount.Dtos;
+using Application.Features.ProductPdf.Dtos;
 using Application.Features.Products.Command.CreateProduct;
 using Application.Features.Products.Command.UpdateProduct;
 using Application.Features.Products.Dtos;
@@ -15,6 +16,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Contexts;
+using Persistence.Migrations;
 
 namespace WebAPI.Controllers
 {
@@ -22,17 +24,23 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ProductController : BaseController
     {
+        private readonly IHostEnvironment webHostEnvironment;
+        IProductPdfRepository productPdfRepository;
+        IFileHelper formFile;
         IAmazonService amazonService;
         IDiscountRepository discountRepository;
         IProductDiscountRepository productDiscountRepository;
         IProductRepository productRepository;
         BaseDbContext context;
-        public ProductController(IAmazonService amazonService, IDiscountRepository discountRepository, IProductDiscountRepository productDiscountRepository, BaseDbContext context)
+        public ProductController(IAmazonService amazonService, IDiscountRepository discountRepository, IProductDiscountRepository productDiscountRepository, BaseDbContext context, IProductPdfRepository productPdfRepository, IHostEnvironment webHostEnvironment, IFileHelper formFile)
         {
             this.amazonService = amazonService;
             this.discountRepository = discountRepository;
             this.productDiscountRepository = productDiscountRepository;
             this.context = context;
+            this.productPdfRepository = productPdfRepository;
+            this.webHostEnvironment = webHostEnvironment;
+            this.formFile = formFile;
         }
 
         [HttpPost("add")]
@@ -85,7 +93,8 @@ namespace WebAPI.Controllers
             }
             return Ok(disclist);
         }
-     
+
+      
 
         [HttpPost("updateDisc")]
         public async Task<IActionResult> updateProductDisc(ProdcutUpdateViewModel updateViewModel)
@@ -148,6 +157,29 @@ namespace WebAPI.Controllers
             await context.SaveChangesAsync();
             return Ok(updateViewModel);
         }
+        [HttpPost("AddPdf")]
+        public async Task<IActionResult> AddPdfAsync(ProductPdfViewModel productPdfViewModel)
+        {
+
+            string UploadPath = Path.Combine(webHostEnvironment.ContentRootPath, "Assets");
+            if (!Directory.Exists(UploadPath))
+                Directory.CreateDirectory(UploadPath);
+            foreach (var item in productPdfViewModel.Files)
+            {
+                var name = 
+                    formFile.SaveFileFromBase64(Request, item.File, item.Name);
+                productPdfRepository.Add(new ProductPdf() { FilePath = name, IDProduct = productPdfViewModel.ProductId });
+
+            }
+            return Ok();
+        }
+        [HttpPost("DeletePdf")]
+        public async Task<IActionResult> DeletePdf(int ProductID)
+        {
+
+            
+            return Ok();
+        }
 
 
     }
@@ -156,5 +188,46 @@ namespace WebAPI.Controllers
     {
         public int ProductID { get; set; }
         public List<ProductDiscountViewModel> Discs { get; set; }
+    }
+    public class ProductUpdatePdfViewModel
+    {
+        public int ProductID { get; set; }
+        public List<ProductPdfViewModel>ProductPdfs { get; set; }
+
+    }
+    public class FileHelper : IFileHelper
+    {
+        private readonly IHostEnvironment _env;
+        public FileHelper(IHostEnvironment env)
+        {
+            _env = env;
+        }
+        public string SaveFileFromBase64(HttpRequest Request, string base64, string ext, string path = "")
+        {
+            string filedir = Path.Combine(_env.ContentRootPath, "Assets", path);
+            if (!Directory.Exists(filedir))
+            { //check if the folder exists;
+                Directory.CreateDirectory(filedir);
+            }
+            var filepath = @$"{Guid.NewGuid().ToString()}." + ext;
+            base64 = base64.Split(',').Last() ?? "";
+            base64 = base64.Replace("data:image/png;base64,", "").Replace("data:image/jpeg;base64,", "").Replace("data:image/jpg;base64,", "");
+            byte[] bytes = Convert.FromBase64String(base64.Replace("data:image/png;base64,", ""));
+            if (bytes.Length > 0)
+            {
+                using (var stream = new FileStream(Path.Combine(filedir, filepath), FileMode.Create))
+                {
+                    stream.Write(bytes, 0, bytes.Length);
+                    stream.Flush();
+                }
+            }
+            var url = String.Format("{0}://{1}/", Request.Scheme, Request.Host);
+            filepath = url + Path.Join("Assets", path, filepath);
+            return filepath;
+        }
+    }
+    public interface IFileHelper
+    {
+        string SaveFileFromBase64(HttpRequest Request, string base64, string ext, string path = "");
     }
 }
