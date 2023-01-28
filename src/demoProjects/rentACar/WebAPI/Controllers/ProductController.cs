@@ -1,5 +1,6 @@
 ﻿using Application.Features.Models.Models;
 using Application.Features.Models.Queries.GetListModelByDynamic;
+using Application.Features.OrderPayoneer.Dtos;
 using Application.Features.ProductDiscount.Dtos;
 using Application.Features.ProductPdf.Dtos;
 using Application.Features.Products.Command.CreateProduct;
@@ -173,12 +174,19 @@ namespace WebAPI.Controllers
             }
             return Ok();
         }
+       
         [HttpPost("DeletePdf")]
         public async Task<IActionResult> DeletePdf(int ProductID)
         {
 
-            
-            return Ok();
+            var productpdf = context.ProductPdfs.Where(x => x.IDProduct == ProductID).Select(y => y.Id);
+            context.Entry(productpdf).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+
+            context.Remove(productpdf);
+
+            await context.SaveChangesAsync();
+
+            return Ok(productpdf);
         }
 
 

@@ -1,9 +1,11 @@
+using Application.Services.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileProviders;
 using Persistence.Contexts;
+using Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     }
 
 );
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddDbContext<BaseDbContext>(options =>
    options.UseSqlServer(builder.Configuration.GetConnectionString("RentACarCampConnectionString")));
 builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
@@ -36,6 +39,7 @@ app.UseCors("corsapp");
 
 app.UseHttpsRedirection();
 
+app.UseStaticFiles();
 
 app.UseRouting();
 app.UseAuthentication(); 

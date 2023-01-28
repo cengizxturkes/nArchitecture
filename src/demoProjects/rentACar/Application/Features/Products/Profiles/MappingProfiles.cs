@@ -27,6 +27,7 @@ namespace Application.Features.Products.Profiles
             CreateMap<Product, ProductGetByIdDto>().ReverseMap();
             CreateMap<Product, UpdatedProductDto>().ReverseMap();
             CreateMap<Product, UpdateProductCommand>().ReverseMap();
+
         }
     }
 }

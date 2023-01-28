@@ -27,6 +27,7 @@ namespace Persistence.Contexts
         public DbSet<Customer> Customers { get; set; }
         public DbSet<ProductFbaServices> ProductFbaServices { get; set; }
         public DbSet<ProductPdf> ProductPdfs { get; set; }
+        public DbSet<Payoneer> Payoneers { get; set; }
 
 
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)

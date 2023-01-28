@@ -478,10 +478,9 @@
     }
 
     async function deletePdf() {
-        var data = @ViewBag.ProductID;
-
+        var data = {"ProductID": @ViewBag.ProductID};
         $.ajax({
-            type: 'POST',
+            type: 'Delete',
             url: 'http://localhost:5147/api/Product/DeletePdf',
             data: JSON.stringify(data),
             success: function (data) {

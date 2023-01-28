@@ -1,0 +1,117 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+
+}
+@using Application.Features.Orders.Dtos;
+@using Domain.Entities
+@model List<OrderViewModel>
+
+<html>
+<body>
+    <div class="app-content main-content">
+        <div class="side-app main-container">
+            <div class="content-wrapper">
+                <div class="content-body">
+                    <div class="b-overlay-wrap position-relative">
+                        <!---->
+                        <div data-v-0d352060="" class="card">
+                            <!----><!---->
+                            <div data-v-0d352060="" class="card-header">
+                                <div data-v-0d352060="">
+                                    <h4 data-v-0d352060="" class="card-title"></h4> <!---->
+                                </div> <i data-v-0d352060="" aria-expanded="true" aria-controls="3"
+                                          class="code-toggler feather icon-code cursor-pointer"></i>
+                            </div>
+                            <div data-v-0d352060="" class="card-body">
+                                <!----><!---->
+                                <div data-v-0d352060="" class="row">
+                                    <div data-v-0d352060="" class="col-sm-12">
+                                        <div data-v-0d352060="" class="row">
+                                            <div data-v-0d352060="" class="col-sm-3">
+                                                <div data-v-0d352060="" class="row">
+                                                    
+                                                      
+                                                 
+                                                    <h3 data-v-0d352060="">Previous Orders</h3>
+                                                </div>
+                                            </div>
+                                            <div data-v-0d352060="">
+                                                <div class="table-responsive" data-v-0d352060="">
+                                                    <table role="table" aria-busy="false" aria-colcount="10"
+                                                           class="table b-table table-striped" id="__BVID__179">
+                                                        <!----><!---->
+                                                        <thead role="rowgroup" class="">
+                                                            <!---->
+                                                            <tr role="row" class="">
+                                                                <th role="columnheader" scope="col" aria-colindex="1" class="">
+                                                                    <div></div>
+                                                                </th>
+                                                                <th role="columnheader" scope="col" aria-colindex="2" class="">
+                                                                    <div>OrderDate</div>
+                                                                </th>
+                                                                <th role="columnheader" scope="col" aria-colindex="3" class="">
+                                                                    <div>OrderCode</div>
+                                                                </th>
+                                                            
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody role="rowgroup">
+                                                            <!---->
+                                                            <tr role="row" class="">
+
+                                                                @foreach (var item in Model)
+                                                                {
+
+
+                                                                <tr>
+                                                                    <td>
+                                                                        
+                                                                        <a class="btn btn-info  type="submit" asp-route-id="@item.OrderCode" asp-action="Detail" asp-controller="ShipmentFba" id="@item.OrderCode">Detail</a>
+
+
+                                                                    </td>
+                                                                    <td aria-colindex="2" role="cell" class="">@item.OrderDate</td>
+                                                                    <td aria-colindex="2" role="cell" class="">@item.OrderCode</td>
+                                                                    
+                                                                </tr>
+                                                                }
+
+
+                                                            <!----><!---->
+                                                        </tbody><!---->
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div data-v-0d352060="" class="col-sm-1"></div>
+                                        </div> <br data-v-0d352060="">
+                                        <hr data-v-0d352060=""><br data-v-0d352060="">
+                                        <div data-v-0d352060="" class="container-fluid"></div>
+                                    </div>
+                                </div>
+                             
+                                <div data-v-0d352060="" id="3" class="card-code collapse" style="display: none;">
+                                    <div data-v-0d352060="" class="p-1"></div>
+                                    <pre data-v-0d352060=""
+                                         class="language-markup"><code data-v-0d352060="" class="language-markup"></code></pre>
+                                </div>
+                            </div><!----><!---->
+                        </div>
+                        
+                    </div>
+
+                </div><!---->
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script>
+
+
+
+    </script>
+</body>
+</html>

@@ -35,7 +35,8 @@ namespace WebUi.Controllers
             //var userProductWeight = _context.Orders.Where(x => x.UserId == userId).Select(y => y.Weight.ToString()).ToList();
 
             ViewBag.LastName = userLastName;
-            List<Product> fundList = _context.Products.Where(x=>x.UserId==userId).ToList();
+            List<Product> fundList = _context.Products.Where(x=>x.UserId==userId&&x.IsOrder==false).ToList();
+           
             ViewBag.Orders = fundList;
             ViewBag.name = userName;
             ViewBag.v = usermail;
@@ -56,8 +57,8 @@ namespace WebUi.Controllers
             var userName = _context.Users.Where(x => x.Email == usermail).Select(y => y.FirstName).FirstOrDefault();
             var userLastName = _context.Users.Where(x => x.Email == usermail).Select(y => y.LastName).FirstOrDefault();
             var userId = _context.Users.Where(x => x.Email == usermail).Select(y => y.Id).FirstOrDefault();
-           
-          
+
+
             ViewBag.LastName = userLastName;
             List<Product> fundList = _context.Products.Where(x => x.Id == userId).ToList();
 

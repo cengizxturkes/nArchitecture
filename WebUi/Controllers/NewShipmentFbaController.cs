@@ -1,11 +1,14 @@
-﻿using Domain.Entities;
+﻿using Application.Features.OrderPayoneer.Dtos;
+using Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Persistence.Contexts;
+using WebUi.Models.InventoryControllerModel;
 
 namespace WebUi.Controllers
 {
-	public class NewShipmentFbaController : Controller
+	public class NewShipmentFbaController : BaseController
 	{
 		private readonly BaseDbContext _context;
 		public NewShipmentFbaController(BaseDbContext context)
@@ -15,12 +18,12 @@ namespace WebUi.Controllers
 		[Authorize]
 		public IActionResult Index()
 		{
-			var usermail = User.Identity.Name;
+            var usermail = User.Identity.Name;
 
-			var userId = _context.Users.Where(x => x.Email == usermail).Select(y => y.Id).FirstOrDefault();
-			var userLastName = _context.Users.Where(x => x.Email == usermail).Select(y => y.LastName).FirstOrDefault();
+            var userId = _context.Users.Where(x => x.Email == usermail).Select(y => y.Id).FirstOrDefault();
+            var userLastName = _context.Users.Where(x => x.Email == usermail).Select(y => y.LastName).FirstOrDefault();
 			var userFirstName = _context.Users.Where(x => x.Email == usermail).Select(y => y.FirstName).FirstOrDefault();
-            List<Product> products = _context.Products.Where(x => x.UserId == userId).ToList();
+            List<Product> products = _context.Products.Where(x => x.UserId == userId&&x.IsOrder==false).ToList();
             var productAmount = products.Count();
 			double v = _context.Products.Where(x => x.UserId == userId).Select(x => x.Desi).ToList().Sum();
 			
@@ -39,5 +42,38 @@ namespace WebUi.Controllers
 			ViewBag.v = usermail;
 			return View();
 		}
-	}
+		public async Task<IActionResult> AddPayoneerCode(OrderPayoonerViewModel orderPayoonerView,string code)
+		
+			{
+            orderPayoonerView.PayonerCode=code;
+            var usermail = User.Identity.Name;
+            var userId = _context.Users.Where(x => x.Email == usermail).Select(y => y.Id).FirstOrDefault();
+            var Product = _context.Products.Where(x => x.UserId == userId&&x.IsOrder==false).ToList();
+            orderPayoonerView.UserId = userId;
+            var response = await _client.PostAsJsonAsync("payoneer/add", orderPayoonerView);
+			var orderDate=DateTime.Now;
+
+			var orderCode = orderDate.ToString("ddMMYYYYHHmmss");
+
+            if (response.IsSuccessStatusCode)
+            {
+				foreach(var model in Product)
+				{
+
+					model.IsOrder = true;
+					model.OrderCode = orderCode;
+					model.OrderDate = orderDate;
+                }
+				_context.SaveChanges();
+                var body = await response.Content.ReadAsStringAsync();
+                return RedirectToAction("Index", "Inventory");
+
+            }
+			return RedirectToAction("Index", "Inventory");
+        }
+		//public async Task<IActionResult> SendMail(OrderPayoonerViewModel orderPayoonerView)
+		//{ 
+		
+		//}
+        }
 }

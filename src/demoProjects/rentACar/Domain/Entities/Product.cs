@@ -28,6 +28,8 @@ namespace Domain.Entities
         public double RecievedStockAmount { get; set; }
         public int Box { get; set; }
         public bool IsOrder { get; set; }= false;
+        public string OrderCode { get; set; } = "";
+        public DateTime OrderDate { get; set; }
 
         //context nerde
 
