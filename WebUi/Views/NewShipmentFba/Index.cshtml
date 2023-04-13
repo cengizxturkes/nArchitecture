@@ -96,15 +96,7 @@
                                                                             <a class="btn btn-info" id=@item.Id type="submit" asp-route-id="@item.Id" asp-action="Index" asp-controller="EditProduct">Edit</a>
 
                                                     </form>
-                                                        @*<script>
-                                                            $("#@item.Id").click(function(){
-                                                                
-                                                                   
-                                                            });
-
-                                                               
-                                                                
-                                                        </script>*@
+                                                       
                                                        
                                                     </td>
                                                     <td aria-colindex="2" role="cell" class="">@item.Id</td>
@@ -254,7 +246,10 @@
                                 'Siparişiniz Başarılı Bir Şekilde Oluşturuldu',
                                 'success'
                             );
-                            location.reload();
+                    setTimeout(() => {
+                        location.href = "/Inventory";
+                    }, "1000")
+                           
                         }
                     });
         }

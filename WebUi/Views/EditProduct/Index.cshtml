@@ -1,4 +1,5 @@
-﻿@using Domain.Entities;
+﻿@using Domain.Entities
+n@using Domain.Entities;
 
 @{
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
@@ -220,10 +221,10 @@
                     <div class="row">
                     @for (int i = 0; i < ViewBag.Pdfs.Count; i++)
                     {
-                        <div class="col-md-6">
+                        <div class="col-md-6" id="pdf@(ViewBag.Pdfs[i].Id)">
                             <a target="_blank" href="@ViewBag.Pdfs[i].FilePath">
                                Pdf: @(i+1)
-                            </a> <button class="btn btn-success" id="@ViewBag.ProductID" onclick="deletePdf()">Delete</button>
+                            </a> <button class="btn btn-success" id="@ViewBag.ProductID" onclick="deletePdf(@ViewBag.Pdfs[i].Id)">Delete</button>
                         </div>
                        
                     }
@@ -477,16 +478,15 @@
 
     }
 
-    async function deletePdf() {
-        var data = {"ProductID": @ViewBag.ProductID};
+    async function deletePdf(pdfid) {
         $.ajax({
-            type: 'Delete',
-            url: 'http://localhost:5147/api/Product/DeletePdf',
-            data: JSON.stringify(data),
+            type: 'Post',
+            url: 'http://localhost:5147/api/Product/DeletePdf?PdfId='+pdfid,
             success: function (data) {
-                location.reload();
+                $("#pdf"+pdfid).remove();
             },
             contentType: "application/json",
+            
             dataType: 'json'
         });
 

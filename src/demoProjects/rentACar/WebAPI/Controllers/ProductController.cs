@@ -176,10 +176,10 @@ namespace WebAPI.Controllers
         }
        
         [HttpPost("DeletePdf")]
-        public async Task<IActionResult> DeletePdf(int ProductID)
+        public async Task<IActionResult> DeletePdf(int PdfId)
         {
 
-            var productpdf = context.ProductPdfs.Where(x => x.IDProduct == ProductID).Select(y => y.Id);
+            var productpdf = context.ProductPdfs.Where(x => x.Id == PdfId).First();
             context.Entry(productpdf).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
 
             context.Remove(productpdf);
@@ -189,7 +189,19 @@ namespace WebAPI.Controllers
             return Ok(productpdf);
         }
 
+        [HttpPost("DeleteProduct")]
+        public async Task<IActionResult> DeleteProduct(int productid)
+        {
 
+            var productID = context.Products.Where(x => x.Id == productid).First();
+            context.Entry(productID).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+
+            context.Remove(productID);
+
+            await context.SaveChangesAsync();
+
+            return Ok(productID);
+        }
     }
 
     public class ProdcutUpdateViewModel

@@ -2,7 +2,7 @@
 @model WebUi.Models.InventoryControllerModel.InventoryAddViewModel
 @Html.HiddenFor(m=>m.UserId);
 @{
-	ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 
@@ -19,511 +19,548 @@
 
 
 <html>
-    <body>
-<div class="app-content main-content">
-    <div class="side-app main-container">
+<body>
+    <div class="app-content main-content">
+        <div class="side-app main-container">
 
-        <!--Page header-->
-        <div class="content-wrapper">
-            <div class="content-body">
-                <div class="b-overlay-wrap position-relative">
-                    <div data-v-0d352060="" class="card">
-                        <!----><!---->
-                        <div data-v-0d352060="" class="card-header">
-                            <div data-v-0d352060="">
-                                <h4 data-v-0d352060="" class="card-title"></h4> <!---->
-                            </div> <i data-v-0d352060="" aria-expanded="true" aria-controls="9"
-                                      class="code-toggler feather icon-code cursor-pointer"></i>
-                        </div>
-                        <div data-v-0d352060="" class="card-body">
+            <!--Page header-->
+            <div class="content-wrapper">
+                <div class="content-body">
+                    <div class="b-overlay-wrap position-relative">
+                        <div data-v-0d352060="" class="card">
                             <!----><!---->
-                            <h3 data-v-0d352060="" style="text-align: center; font-size: 20px;">
-                                ÜRÜNLERİNİZİ AŞAĞIDAKİ ADRESE GÖNDERİN
-                            </h3> <br data-v-0d352060="">
-                            <div data-v-0d352060="" class="row">
-                                <div data-v-0d352060="" class="col-md-4">
-                                    <table data-v-0d352060="" class="table table-borderless">
-                                        <tr data-v-0d352060="">
-                                            <th data-v-0d352060="" scope="row">Alıcı Adı</th>
-                                            <td data-v-0d352060="">
-                                                <button data-v-0d352060="" type="button"
-                                                        class="btn btn-icon btn-flat-dark">
-                                                    <svg data-v-0d352060=""
-                                                         xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
-                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                         class="feather feather-file-text">
-                                                        <path data-v-0d352060=""
-                                                              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
-                                                        </path>
-                                                        <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
-                                                        <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
-                                                        <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
-                                                        <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
-                                                    </svg>
-                                                </button>
-                                                @ViewBag.name @ViewBag.LastName
-
-                                            </td>
-                                        </tr>
-                                        <tr data-v-0d352060="">
-                                            <th data-v-0d352060="" scope="row">Adress 1</th>
-                                            <td data-v-0d352060="">
-                                                <button data-v-0d352060="" type="button"
-                                                        class="btn btn-icon btn-flat-dark">
-                                                    <svg data-v-0d352060=""
-                                                         xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
-                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                         class="feather feather-file-text">
-                                                        <path data-v-0d352060=""
-                                                              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
-                                                        </path>
-                                                        <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
-                                                        <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
-                                                        <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
-                                                        <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
-                                                    </svg>
-                                                </button>
-                                                292 Getty Ave
-                                            </td>
-                                        </tr>
-                                        <tr data-v-0d352060="">
-                                            <th data-v-0d352060="" scope="row">Adress 2</th>
-                                            <td data-v-0d352060="">
-                                                <button data-v-0d352060="" type="button"
-                                                        class="btn btn-icon btn-flat-dark">
-                                                    <svg data-v-0d352060=""
-                                                         xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
-                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                         class="feather feather-file-text">
-                                                        <path data-v-0d352060=""
-                                                              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
-                                                        </path>
-                                                        <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
-                                                        <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
-                                                        <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
-                                                        <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
-                                                    </svg>
-                                                </button>
-                                                Drop off to ShipHack
-                                            </td>
-                                        </tr>
-                                        <tr data-v-0d352060="">
-                                            <th data-v-0d352060="" scope="row">Şehir</th>
-                                            <td data-v-0d352060="">
-                                                <button data-v-0d352060="" type="button"
-                                                        class="btn btn-icon btn-flat-dark">
-                                                    <svg data-v-0d352060=""
-                                                         xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
-                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                         class="feather feather-file-text">
-                                                        <path data-v-0d352060=""
-                                                              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
-                                                        </path>
-                                                        <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
-                                                        <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
-                                                        <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
-                                                        <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
-                                                    </svg>
-                                                </button>
-                                                Clifton
-                                            </td>
-                                        </tr>
-                                        <tr data-v-0d352060="">
-                                            <th data-v-0d352060="" scope="row">Eyalet</th>
-                                            <td data-v-0d352060="">
-                                                <button data-v-0d352060="" type="button"
-                                                        class="btn btn-icon btn-flat-dark">
-                                                    <svg data-v-0d352060=""
-                                                         xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
-                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                         class="feather feather-file-text">
-                                                        <path data-v-0d352060=""
-                                                              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
-                                                        </path>
-                                                        <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
-                                                        <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
-                                                        <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
-                                                        <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
-                                                    </svg>
-                                                </button>
-                                                New Jersey
-                                            </td>
-                                        </tr>
-                                        <tr data-v-0d352060="">
-                                            <th data-v-0d352060="" scope="row">Posta Kodu</th>
-                                            <td data-v-0d352060="">
-                                                <button data-v-0d352060="" type="button"
-                                                        class="btn btn-icon btn-flat-dark">
-                                                    <svg data-v-0d352060=""
-                                                         xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
-                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                         class="feather feather-file-text">
-                                                        <path data-v-0d352060=""
-                                                              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
-                                                        </path>
-                                                        <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
-                                                        <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
-                                                        <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
-                                                        <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
-                                                    </svg>
-                                                </button> 07011
-                                            </td>
-                                        </tr>
-                                        <tr data-v-0d352060="">
-                                            <th data-v-0d352060="" scope="row">Telefon</th>
-                                            <td data-v-0d352060="">
-                                                <button data-v-0d352060="" type="button"
-                                                        class="btn btn-icon btn-flat-dark">
-                                                    <svg data-v-0d352060=""
-                                                         xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
-                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                         class="feather feather-file-text">
-                                                        <path data-v-0d352060=""
-                                                              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
-                                                        </path>
-                                                        <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
-                                                        <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
-                                                        <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
-                                                        <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
-                                                    </svg>
-                                                </button>
-                                                (201) 257-1329
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div data-v-0d352060="" class="col-md-2"></div>
-                                <div data-v-0d352060="" class="col-md-6">
-                                    <ul data-v-0d352060="" class="list-unstyled">
-                                        <br data-v-0d352060="">
-                                        <li data-v-0d352060="">
-                                            - This adress is only used for sending inventory to
-                                            ShipHack for <br data-v-0d352060=""> Amazon FBA Arbitrage preperation
-                                            services.
-                                        </li>
-                                        <br data-v-0d352060="">
-                                        <li data-v-0d352060="">
-                                            - Once we receive your products with the adress at the
-                                            left, we <br data-v-0d352060=""> recognize the package from the unique
-                                            6-digit code assignet to you.
-                                        </li>
-                                        <br data-v-0d352060="">
-                                        <li data-v-0d352060="">
-                                            - Once we receive your products, we count them carefully
-                                            and enter <br data-v-0d352060=""> to your inventory.Then you will see
-                                            updated amounts 'in stock'.
-                                        </li>
-                                        <br data-v-0d352060="">
-                                        <li data-v-0d352060="">
-                                            - You can create only FBA shipments with the products in
-                                            your <br data-v-0d352060=""> inventory.For other services, plase use other
-                                            services.
-                                        </li>
-                                        <br data-v-0d352060="">
-                                        <li data-v-0d352060="">
-                                            - There is a storage fee for the products you keep in your inventory. <br data-v-0d352060=""> Each product with less than 5 lbs dimensional weight
-                                            costs $0.01 per day <br data-v-0d352060="">
-                                            and the storage fees are charged daily and automatically from your
-                                            credit.<br data-v-0d352060=""> Products with over 5 lbs dimensional weight
-                                            will be charged like $0.06 <br data-v-0d352060=""> for 6 lbs, $0.07 for 7
-                                            lbs, and so on.
-                                        </li>
-                                        <br data-v-0d352060="">
-                                    </ul>
-                                </div>
+                            <div data-v-0d352060="" class="card-header">
+                                <div data-v-0d352060="">
+                                    <h4 data-v-0d352060="" class="card-title"></h4> <!---->
+                                </div> <i data-v-0d352060="" aria-expanded="true" aria-controls="9"
+                                          class="code-toggler feather icon-code cursor-pointer"></i>
                             </div>
-                            <div data-v-0d352060="" id="9" class="card-code collapse" style="display: none;">
-                                <div data-v-0d352060="" class="p-1"></div>
-                                <pre data-v-0d352060=""
-                                     class=" language-markup"><code data-v-0d352060="" class=" language-markup"></code></pre>
-                            </div>
-                        </div><!----><!---->
-                    </div>
-                    <form data-v-0d352060="" class="card" asp-controller="Inventory" asp-action="InventoryProduct">
-                        <!----><!---->
-                        <div data-v-0d352060="" class="card-header">
-                            <div data-v-0d352060="">
-                                <h4 data-v-0d352060="" class="card-title"></h4> <!---->
-                            </div> <i data-v-0d352060="" aria-expanded="true" aria-controls="9"
-                                      class="code-toggler feather icon-code cursor-pointer"></i>
-                        </div>
-                        <div data-v-0d352060="" class="card-body">
-                            <!----><!---->
-                            <h3 data-v-0d352060="" style="text-align: center; font-size: 20px; bottom: 30px;">
-                                ENVANTERİNİZE YENİ ÜRÜN EKLEYİN
-                            </h3> <br data-v-0d352060="">
-                            <div data-v-0d352060="" class="row">
-                                <div data-v-0d352060="" class="col-md-10">
-                                    <div data-v-0d352060="" class="row nomobile" style="text-align: center;">
-                                        <div data-v-0d352060="" class="col-md-3">
-                                        </div>
-                                        <div data-v-0d352060="" class="col-md-4">
-                                            <div data-v-0d352060="" class="row">
-                                                <div data-v-0d352060="" class="col-md-1"></div>
-                                                <div data-v-0d352060="" class="col-md-3">Fiyat</div>
-                                                <div data-v-0d352060="" class="col-md-3">Miktar</div>
-                                                <div data-v-0d352060="" class="col-md-3">Ağırlık</div>
-                                                <div data-v-0d352060="" class="col-md-1"></div>
-                                            </div>
-                                        </div>
-                                        <div data-v-0d352060="" class="col-md-3">Ölçüler</div>
-                                        @*<div data-v-0d352060="" class="col-md-2">Miktar</div>*@
-                                    </div>
-                                    <div data-v-0d352060="" class="row" style="padding-top: 20px; text-align: center;">
-                                        <div data-v-0d352060="" class="col-md-3">
-                                            <div data-v-0d352060="" role="group" class="input-group mb-2">
-
-                                                <!----><input asp-for="AsinCode" type="text" placeholder="ASIN No"
-                                                              class="form-control" data-v-0d352060="">
-                                                <div data-v-0d352060="" class="input-group-append">
+                            <div data-v-0d352060="" class="card-body">
+                                <!----><!---->
+                                <h3 data-v-0d352060="" style="text-align: center; font-size: 20px;">
+                                    ÜRÜNLERİNİZİ AŞAĞIDAKİ ADRESE GÖNDERİN
+                                </h3> <br data-v-0d352060="">
+                                <div data-v-0d352060="" class="row">
+                                    <div data-v-0d352060="" class="col-md-4">
+                                        <table data-v-0d352060="" class="table table-borderless">
+                                            <tr data-v-0d352060="">
+                                                <th data-v-0d352060="" scope="row">Alıcı Adı</th>
+                                                <td data-v-0d352060="">
                                                     <button data-v-0d352060="" type="button"
-                                                            class="btn btn-secondary bg-lighten-2">
-                                                        Search on &nbsp;<img data-v-0d352060="" height="13px"
-                                                                             src="https://www.peninsulafamilyservice.org/wp-content/uploads/2019/08/amazon-logo-transparent.png"
-                                                                             class="rounded float-right">
+                                                            class="btn btn-icon btn-flat-dark">
+                                                        <svg data-v-0d352060=""
+                                                             xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                             class="feather feather-file-text">
+                                                            <path data-v-0d352060=""
+                                                                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
+                                                            </path>
+                                                            <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
+                                                            <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
+                                                            <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
+                                                            <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
+                                                        </svg>
                                                     </button>
-                                                </div><!---->
-                                            </div>
-                                        </div>
+                                                    @ViewBag.name @ViewBag.LastName
 
-                                        <div data-v-0d352060="" class="col-md-4">
-                                            <div data-v-0d352060="" class="row">
-                                                <div data-v-0d352060="" class="col-md-1"></div>
-                                                <div data-v-0d352060="" class="col-md-3">
+                                                </td>
+                                            </tr>
+                                            <tr data-v-0d352060="">
+                                                <th data-v-0d352060="" scope="row">Adress 1</th>
+                                                <td data-v-0d352060="">
+                                                    <button data-v-0d352060="" type="button"
+                                                            class="btn btn-icon btn-flat-dark">
+                                                        <svg data-v-0d352060=""
+                                                             xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                             class="feather feather-file-text">
+                                                            <path data-v-0d352060=""
+                                                                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
+                                                            </path>
+                                                            <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
+                                                            <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
+                                                            <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
+                                                            <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
+                                                        </svg>
+                                                    </button>
+                                                    292 Getty Ave
+                                                </td>
+                                            </tr>
+                                            <tr data-v-0d352060="">
+                                                <th data-v-0d352060="" scope="row">Adress 2</th>
+                                                <td data-v-0d352060="">
+                                                    <button data-v-0d352060="" type="button"
+                                                            class="btn btn-icon btn-flat-dark">
+                                                        <svg data-v-0d352060=""
+                                                             xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                             class="feather feather-file-text">
+                                                            <path data-v-0d352060=""
+                                                                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
+                                                            </path>
+                                                            <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
+                                                            <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
+                                                            <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
+                                                            <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
+                                                        </svg>
+                                                    </button>
+                                                    Drop off to ShipHack
+                                                </td>
+                                            </tr>
+                                            <tr data-v-0d352060="">
+                                                <th data-v-0d352060="" scope="row">Şehir</th>
+                                                <td data-v-0d352060="">
+                                                    <button data-v-0d352060="" type="button"
+                                                            class="btn btn-icon btn-flat-dark">
+                                                        <svg data-v-0d352060=""
+                                                             xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                             class="feather feather-file-text">
+                                                            <path data-v-0d352060=""
+                                                                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
+                                                            </path>
+                                                            <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
+                                                            <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
+                                                            <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
+                                                            <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
+                                                        </svg>
+                                                    </button>
+                                                    Clifton
+                                                </td>
+                                            </tr>
+                                            <tr data-v-0d352060="">
+                                                <th data-v-0d352060="" scope="row">Eyalet</th>
+                                                <td data-v-0d352060="">
+                                                    <button data-v-0d352060="" type="button"
+                                                            class="btn btn-icon btn-flat-dark">
+                                                        <svg data-v-0d352060=""
+                                                             xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                             class="feather feather-file-text">
+                                                            <path data-v-0d352060=""
+                                                                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
+                                                            </path>
+                                                            <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
+                                                            <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
+                                                            <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
+                                                            <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
+                                                        </svg>
+                                                    </button>
+                                                    New Jersey
+                                                </td>
+                                            </tr>
+                                            <tr data-v-0d352060="">
+                                                <th data-v-0d352060="" scope="row">Posta Kodu</th>
+                                                <td data-v-0d352060="">
+                                                    <button data-v-0d352060="" type="button"
+                                                            class="btn btn-icon btn-flat-dark">
+                                                        <svg data-v-0d352060=""
+                                                             xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                             class="feather feather-file-text">
+                                                            <path data-v-0d352060=""
+                                                                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
+                                                            </path>
+                                                            <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
+                                                            <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
+                                                            <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
+                                                            <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
+                                                        </svg>
+                                                    </button> 07011
+                                                </td>
+                                            </tr>
+                                            <tr data-v-0d352060="">
+                                                <th data-v-0d352060="" scope="row">Telefon</th>
+                                                <td data-v-0d352060="">
+                                                    <button data-v-0d352060="" type="button"
+                                                            class="btn btn-icon btn-flat-dark">
+                                                        <svg data-v-0d352060=""
+                                                             xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
+                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                             class="feather feather-file-text">
+                                                            <path data-v-0d352060=""
+                                                                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
+                                                            </path>
+                                                            <polyline data-v-0d352060="" points="14 2 14 8 20 8"></polyline>
+                                                            <line data-v-0d352060="" x1="16" y1="13" x2="8" y2="13"></line>
+                                                            <line data-v-0d352060="" x1="16" y1="17" x2="8" y2="17"></line>
+                                                            <polyline data-v-0d352060="" points="10 9 9 9 8 9"></polyline>
+                                                        </svg>
+                                                    </button>
+                                                    (201) 257-1329
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div data-v-0d352060="" class="col-md-2"></div>
+                                    <div data-v-0d352060="" class="col-md-6">
+                                        <ul data-v-0d352060="" class="list-unstyled">
+                                            <br data-v-0d352060="">
+                                            <li data-v-0d352060="">
+                                                - This adress is only used for sending inventory to
+                                                ShipHack for <br data-v-0d352060=""> Amazon FBA Arbitrage preperation
+                                                services.
+                                            </li>
+                                            <br data-v-0d352060="">
+                                            <li data-v-0d352060="">
+                                                - Once we receive your products with the adress at the
+                                                left, we <br data-v-0d352060=""> recognize the package from the unique
+                                                6-digit code assignet to you.
+                                            </li>
+                                            <br data-v-0d352060="">
+                                            <li data-v-0d352060="">
+                                                - Once we receive your products, we count them carefully
+                                                and enter <br data-v-0d352060=""> to your inventory.Then you will see
+                                                updated amounts 'in stock'.
+                                            </li>
+                                            <br data-v-0d352060="">
+                                            <li data-v-0d352060="">
+                                                - You can create only FBA shipments with the products in
+                                                your <br data-v-0d352060=""> inventory.For other services, plase use other
+                                                services.
+                                            </li>
+                                            <br data-v-0d352060="">
+                                            <li data-v-0d352060="">
+                                                - There is a storage fee for the products you keep in your inventory. <br data-v-0d352060=""> Each product with less than 5 lbs dimensional weight
+                                                costs $0.01 per day <br data-v-0d352060="">
+                                                and the storage fees are charged daily and automatically from your
+                                                credit.<br data-v-0d352060=""> Products with over 5 lbs dimensional weight
+                                                will be charged like $0.06 <br data-v-0d352060=""> for 6 lbs, $0.07 for 7
+                                                lbs, and so on.
+                                            </li>
+                                            <br data-v-0d352060="">
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div data-v-0d352060="" id="9" class="card-code collapse" style="display: none;">
+                                    <div data-v-0d352060="" class="p-1"></div>
+                                    <pre data-v-0d352060=""
+                                         class=" language-markup"><code data-v-0d352060="" class=" language-markup"></code></pre>
+                                </div>
+                            </div><!----><!---->
+                        </div>
+                        <form data-v-0d352060="" class="card" asp-controller="Inventory" asp-action="InventoryProduct">
+                            <!----><!---->
+                            <div data-v-0d352060="" class="card-header">
+                                <div data-v-0d352060="">
+                                    <h4 data-v-0d352060="" class="card-title"></h4> <!---->
+                                </div> <i data-v-0d352060="" aria-expanded="true" aria-controls="9"
+                                          class="code-toggler feather icon-code cursor-pointer"></i>
+                            </div>
+                            <div data-v-0d352060="" class="card-body">
+                                <!----><!---->
+                                <h3 data-v-0d352060="" style="text-align: center; font-size: 20px; bottom: 30px;">
+                                    ENVANTERİNİZE YENİ ÜRÜN EKLEYİN
+                                </h3> <br data-v-0d352060="">
+                                <div data-v-0d352060="" class="row">
+                                    <div data-v-0d352060="" class="col-md-10">
+                                        <div data-v-0d352060="" class="row nomobile" style="text-align: center;">
+                                            <div data-v-0d352060="" class="col-md-3">
+                                            </div>
+                                            <div data-v-0d352060="" class="col-md-4">
+                                                <div data-v-0d352060="" class="row">
+                                                    <div data-v-0d352060="" class="col-md-1"></div>
+                                                    <div data-v-0d352060="" class="col-md-3">Fiyat</div>
+                                                    <div data-v-0d352060="" class="col-md-3">Miktar</div>
+                                                    <div data-v-0d352060="" class="col-md-3">Ağırlık</div>
+                                                    <div data-v-0d352060="" class="col-md-1"></div>
+                                                </div>
+                                            </div>
+                                            <div data-v-0d352060="" class="col-md-3">Ölçüler</div>
+                                            @*<div data-v-0d352060="" class="col-md-2">Miktar</div>*@
+                                        </div>
+                                        <div data-v-0d352060="" class="row" style="padding-top: 20px; text-align: center;">
+                                            <div data-v-0d352060="" class="col-md-3">
+                                                <div data-v-0d352060="" role="group" class="input-group mb-2">
+
+                                                    <!----><input asp-for="AsinCode" type="text" placeholder="ASIN No"
+                                                                  class="form-control" data-v-0d352060="">
+                                                    <div data-v-0d352060="" class="input-group-append">
+                                                        <button data-v-0d352060="" type="button"
+                                                                class="btn btn-secondary bg-lighten-2">
+                                                            Search on &nbsp;<img data-v-0d352060="" height="13px"
+                                                                                 src="https://www.peninsulafamilyservice.org/wp-content/uploads/2019/08/amazon-logo-transparent.png"
+                                                                                 class="rounded float-right">
+                                                        </button>
+                                                    </div><!---->
+                                                </div>
+                                            </div>
+
+                                            <div data-v-0d352060="" class="col-md-4">
+                                                <div data-v-0d352060="" class="row">
+                                                    <div data-v-0d352060="" class="col-md-1"></div>
+                                                    <div data-v-0d352060="" class="col-md-3">
 
                                                         <input asp-for="TotalPrice" type="text" placeholder="0.00"
-                                                           class="mb-2 form-control" style="text-align: center;">
+                                                               class="mb-2 form-control" style="text-align: center;">
                                                     </div>
                                                     <div data-v-0d352060="" class="col-md-3">
 
                                                         <input asp-for="ExpectedStockAmount" type="text" placeholder="0.00"
                                                                class="mb-2 form-control" style="text-align: center;">
                                                     </div>
-                                                <div data-v-0d352060="" class="col-md-3">
-                                                    <input asp-for="Weight" type="text" placeholder="0.0"
-                                                           class="mb-2 form-control" data-v-0d352060=""
-                                                           style="text-align: center;">
+                                                    <div data-v-0d352060="" class="col-md-3">
+                                                        <input asp-for="Weight" type="text" placeholder="0.0"
+                                                               class="mb-2 form-control" data-v-0d352060=""
+                                                               style="text-align: center;">
+                                                    </div>
+                                                    <div data-v-0d352060="" class="col-md-1"></div>
                                                 </div>
-                                                <div data-v-0d352060="" class="col-md-1"></div>
                                             </div>
-                                        </div>
                                             <div data-v-0d352060="" class="col-md-4">
                                                 <div data-v-0d352060="" class="row">
-                                                <div data-v-0d352060="" class="col-md-1"></div>
-                                                <div data-v-0d352060="" class="col-md-10">
-                                                    <div data-v-0d352060="" class="row">
-                                                        <div data-v-0d352060="" class="col-md-3">
-                                                            <input asp-for="Width" type="text" placeholder="0.0"
-                                                                   class="mb-2 form-control" style="text-align: center;">
-                                                        </div>
-                                                        <div data-v-0d352060="" class="col-md-3">
-                                                            <input asp-for="Height" type="text" placeholder="0.0"
-                                                                   class="mb-2 form-control" data-v-0d352060=""
-                                                                   style="text-align: center;">
-                                                        </div>
-                                                        <div data-v-0d352060="" class="col-md-3">
-                                                            <input asp-for="Length" type="text" placeholder="0.0"
-                                                                   class="mb-2 form-control" data-v-0d352060=""
-                                                                   style="text-align: center;">
-                                                            <input asp-for="UserId" type="hidden"
-                                                                   Value=ViewBag.UserId />
+                                                    <div data-v-0d352060="" class="col-md-1"></div>
+                                                    <div data-v-0d352060="" class="col-md-10">
+                                                        <div data-v-0d352060="" class="row">
+                                                            <div data-v-0d352060="" class="col-md-3">
+                                                                <input asp-for="Width" type="text" placeholder="0.0"
+                                                                       class="mb-2 form-control" style="text-align: center;">
                                                             </div>
-                                                            
-                                                          
+                                                            <div data-v-0d352060="" class="col-md-3">
+                                                                <input asp-for="Height" type="text" placeholder="0.0"
+                                                                       class="mb-2 form-control" data-v-0d352060=""
+                                                                       style="text-align: center;">
+                                                            </div>
+                                                            <div data-v-0d352060="" class="col-md-3">
+                                                                <input asp-for="Length" type="text" placeholder="0.0"
+                                                                       class="mb-2 form-control" data-v-0d352060=""
+                                                                       style="text-align: center;">
+                                                                <input asp-for="UserId" type="hidden"
+                                                                       Value=ViewBag.UserId />
+                                                            </div>
+
+
                                                         </div>
-                                                        
+
+                                                    </div>
+
                                                 </div>
-                                                
+
                                             </div>
-                                               
-                                        </div>
-                                         
+
 
                                             <div data-v-0d352060="" class="col-md-4">
-                                                  
-                                        <div data-v-0d352060="" class="col-md-1">
-                                            <div data-v-0d352060="" class="row">
-                                                <div data-v-0d352060="" class="col-md-1"></div>
-                                                <div data-v-0d352060="" class="col-md-10">
-                                                    <input id="v-desi" type="hidden" placeholder="0.0"
-                                                           class="mb-2 form-control" data-v-0d352060=""
-                                                           style="text-align: center;">
+
+                                                <div data-v-0d352060="" class="col-md-1">
+                                                    <div data-v-0d352060="" class="row">
+                                                        <div data-v-0d352060="" class="col-md-1"></div>
+                                                        <div data-v-0d352060="" class="col-md-10">
+                                                            <input id="v-desi" type="hidden" placeholder="0.0"
+                                                                   class="mb-2 form-control" data-v-0d352060=""
+                                                                   style="text-align: center;">
+                                                        </div>
+                                                        <div data-v-0d352060="" class="col-md-1"></div>
+                                                    </div>
                                                 </div>
-                                                <div data-v-0d352060="" class="col-md-1"></div>
+                                            </div>
+                                            <div data-v-0d352060="" class="row" style="padding-top: 20px;">
+                                                <div data-v-0d352060="" class="col-md-6">
+                                                    <input asp-for="Name" id="v-product-title" type="text"
+                                                           placeholder="Product Name" class="mb-2 form-control" data-v-0d352060="">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div data-v-0d352060="" class="row" style="padding-top: 20px;">
-                                        <div data-v-0d352060="" class="col-md-6">
-                                            <input asp-for="Name" id="v-product-title" type="text"
-                                                   placeholder="Product Name" class="mb-2 form-control" data-v-0d352060="">
+                                        <div data-v-0d352060="" class="col-md-2" style="padding-top: 70px;">
+                                            <button data-v-0d352060="" type="submit" class="btn btn-success btn-block">
+                                                Envantere
+                                                Ekle<svg data-v-0d352060="" xmlns="http://www.w3.org/2000/svg" width="14px"
+                                                         height="14px" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                         class="feather feather-corner-right-down">
+                                                    <polyline data-v-0d352060="" points="10 15 15 20 20 15"></polyline>
+                                                    <path data-v-0d352060="" d="M4 4h7a4 4 0 0 1 4 4v12"></path>
+                                                </svg>
+                                            </button>
                                         </div>
                                     </div>
-                                </div>
-                                <div data-v-0d352060="" class="col-md-2" style="padding-top: 70px;">
-                                    <button data-v-0d352060="" type="submit" class="btn btn-success btn-block">
-                                        Envantere
-                                        Ekle<svg data-v-0d352060="" xmlns="http://www.w3.org/2000/svg" width="14px"
-                                                 height="14px" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                 class="feather feather-corner-right-down">
-                                            <polyline data-v-0d352060="" points="10 15 15 20 20 15"></polyline>
-                                            <path data-v-0d352060="" d="M4 4h7a4 4 0 0 1 4 4v12"></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div data-v-0d352060="" id="9" class="card-code collapse" style="display: none;">
-                                <div data-v-0d352060="" class="p-1"></div>
-                                <pre data-v-0d352060=""
-                                     class=" language-markup"><code data-v-0d352060="" class=" language-markup"></code></pre>
-                            </div>
-                        </div><!----><!---->
-                    </form>
-                    <div data-v-0d352060="" class="card">
-                        <!----><!---->
-                        <div data-v-0d352060="" class="card-header">
-                            <div data-v-0d352060="">
-                                <h4 data-v-0d352060="" class="card-title"></h4> <!---->
-                            </div> <i data-v-0d352060="" aria-expanded="true" aria-controls="8"
-                                      class="code-toggler feather icon-code cursor-pointer"></i>
-                        </div>
-                        <div data-v-0d352060="" class="card-body">
-                            <!----><!---->
-                            <div data-v-0d352060="" class="row">
-                                <div data-v-0d352060="" class="col-md-12">
-                                    <h3 data-v-0d352060="" style="text-align: center; font-size: 20px; bottom: 30px;">
-                                        ENVANTERLERİM
-                                    </h3>
-                                </div>
-
-                            </div> <br data-v-0d352060=""> <!---->
-                            <div data-v-0d352060="" class="row"><br data-v-0d352060=""></div>
-                            <div data-v-0d352060="">
-                                <div class="table-responsive" data-v-0d352060="">
-                                    <table role="table" aria-busy="false" aria-colcount="10"
-                                           class="table b-table table-striped" id="__BVID__179">
-                                        <!----><!---->
-                                        <thead role="rowgroup" class="">
-                                            <!---->
-                                            <tr role="row" class="">
-                                                <th role="columnheader" scope="col" aria-colindex="1" class="">
-                                                    <div>#</div>
-                                                </th>
-                                                <th role="columnheader" scope="col" aria-colindex="2" class="">
-                                                    <div>Id</div>
-                                                </th>
-                                                <th role="columnheader" scope="col" aria-colindex="2" class="">
-                                                    <div>Asin</div>
-                                                </th>
-                                                <th role="columnheader" scope="col" aria-colindex="3" class="">
-                                                    <div>Product Name</div>
-                                                </th>
-                                                <th role="columnheader" scope="col" aria-colindex="4" class="">
-                                                    <div>Location</div>
-                                                </th>
-                                              
-                                                <th role="columnheader" scope="col" aria-colindex="6" class="">
-                                                    <div>Price</div>
-                                                </th>
-                                                <th role="columnheader" scope="col" aria-colindex="7" class="">
-                                                    <div>A Weight</div>
-                                                </th>
-                                                <th role="columnheader" scope="col" aria-colindex="8" class="">
-                                                    <div>Height</div>
-                                                </th>
-                                                <th role="columnheader" scope="col" aria-colindex="9" class="">
-                                                    <div>Quantity</div>
-                                                </th>
-                                                <th role="columnheader" scope="col" aria-colindex="10" class="">
-                                                    <div>Actions</div>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody role="rowgroup">
-                                            <!---->
-                                            <tr role="row" class="">
-                                                <td aria-colindex="1" role="cell" class="">
-                                                  
-                                                </td>
-
-                                                @foreach (var item in (List<Product>)ViewBag.Orders)
-                                                {
-
-
-                                                <tr>
-                                                        <td>
-                                                            <form asp-action="Index" asp-controller="EditProduct" >
-                                                                <a class="btn btn-info" id=@item.Id type="submit" asp-route-id="@item.Id" asp-action="Index" asp-controller="EditProduct">Edit</a>
-
-                                                    </form>
-                                                        @*<script>
-                                                            $("#@item.Id").click(function(){
-                                                                
-                                                                   
-                                                            });
-
-                                                               
-                                                                
-                                                        </script>*@
-                                                       
-                                                    </td>
-                                                    <td aria-colindex="2" role="cell" class="">@item.Id</td>
-                                                    <td aria-colindex="2" role="cell" class="">@item.AsinCode</td>
-                                                    <td aria-colindex="3" role="cell" class="">@item.Name</td>
-                                                    <td aria-colindex="4" role="cell" class="">USA</td>
-                                                    <td aria-colindex="6" role="cell" class="">@item.TotalPrice</td>
-                                                    <td aria-colindex="7" role="cell" class="">@item.Weight</td>
-                                                    <td aria-colindex="8" role="cell" class="">@item.Height</td>
-                                                    <td aria-colindex="9" role="cell" class="">@item.ExpectedStockAmount</td>
-                                                    <td aria-colindex="10" role="cell" class="">@item.ExpectedTotalPrice$</td>
-                                                </tr>
-                                                }
-
-
-                                            <!----><!---->
-                                        </tbody><!---->
-                                    </table>
-                                </div>
-                            </div>
-                            <div data-v-0d352060="" id="8" class="card-code collapse" style="display: none;">
-                                <div data-v-0d352060="" class="p-1"></div>
-                                <pre data-v-0d352060=""
-                                     class=" language-markup"><code data-v-0d352060="" class=" language-markup"></code></pre>
-                            </div>
-                        </div><!----><!---->
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6" style="text-align: left;">
-                            <button type="button" class="btn btn-warning">
-                                Ürün Sil
-                            </button>
-                        </div>
-                        <form asp-controller="NewShipmentFba" asp-action="Index" class="col-6"
-                              style="text-align: right;">
-                            <button type="submit" class="btn btn-success">
-                                Gönderi Oluştur
-                            </button>
+                                    <div data-v-0d352060="" id="9" class="card-code collapse" style="display: none;">
+                                        <div data-v-0d352060="" class="p-1"></div>
+                                        <pre data-v-0d352060=""
+                                             class=" language-markup"><code data-v-0d352060="" class=" language-markup"></code></pre>
+                                    </div>
+                                </div><!----><!---->
                         </form>
-                    </div> <!----><!---->
+                        @if (((List<Product>)ViewBag.Orders).Count != 0)
+                        {
+
+
+
+                            <div data-v-0d352060="" class="card">
+                                <!----><!---->
+                                <div data-v-0d352060="" class="card-header">
+                                    <div data-v-0d352060="">
+                                        <h4 data-v-0d352060="" class="card-title"></h4> <!---->
+                                    </div> <i data-v-0d352060="" aria-expanded="true" aria-controls="8"
+                                          class="code-toggler feather icon-code cursor-pointer"></i>
+                                </div>
+                                <div data-v-0d352060="" class="card-body">
+                                    <!----><!---->
+                                    <div data-v-0d352060="" class="row">
+                                        <div data-v-0d352060="" class="col-md-12">
+                                            <h3 data-v-0d352060="" style="text-align: center; font-size: 20px; bottom: 30px;">
+                                                ENVANTERLERİM
+                                            </h3>
+                                        </div>
+
+                                    </div> <br data-v-0d352060=""> <!---->
+                                    <div data-v-0d352060="" class="row"><br data-v-0d352060=""></div>
+                                    <div data-v-0d352060="">
+                                        <div class="table-responsive" data-v-0d352060="">
+                                            <table role="table" aria-busy="false" aria-colcount="10"
+                                               class="table b-table table-striped" id="__BVID__179">
+                                                <!----><!---->
+                                                <thead role="rowgroup" class="">
+                                                    <!---->
+                                                    <tr role="row" class="">
+                                                        <th role="columnheader" scope="col" aria-colindex="1" class="">
+                                                            <div>Action</div>
+                                                        </th> <th role="columnheader" scope="col" aria-colindex="1" class="">
+                                                            <div>#</div>
+                                                        </th>
+                                                        <th role="columnheader" scope="col" aria-colindex="2" class="">
+                                                            <div>Id</div>
+                                                        </th>
+                                                        <th role="columnheader" scope="col" aria-colindex="2" class="">
+                                                            <div>Asin</div>
+                                                        </th>
+                                                        <th role="columnheader" scope="col" aria-colindex="3" class="">
+                                                            <div>Product Name</div>
+                                                        </th>
+                                                        <th role="columnheader" scope="col" aria-colindex="4" class="">
+                                                            <div>Location</div>
+                                                        </th>
+
+                                                        <th role="columnheader" scope="col" aria-colindex="6" class="">
+                                                            <div>Price</div>
+                                                        </th>
+                                                        <th role="columnheader" scope="col" aria-colindex="7" class="">
+                                                            <div>A Weight</div>
+                                                        </th>
+                                                        <th role="columnheader" scope="col" aria-colindex="8" class="">
+                                                            <div>Height</div>
+                                                        </th>
+                                                        <th role="columnheader" scope="col" aria-colindex="9" class="">
+                                                            <div>Quantity</div>
+                                                        </th>
+                                                        <th role="columnheader" scope="col" aria-colindex="10" class="">
+                                                            <div>Actions</div>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody role="rowgroup">
+                                                    <!---->
+                                                    <tr role="row" class="">
+                                                        <td aria-colindex="1" role="cell" class="">
+                                                        </td>
+
+                                                        @foreach (var item in (List<Product>)ViewBag.Orders)
+                                                        {
+
+
+                                                        <tr>
+
+                                                            <td>
+                                                                <a onclick="deleteProduct(@item.Id)" class="btn btn-info" type="submit">Delete</a></td>
+                                                            <td>
+                                                                <form asp-action="Index" asp-controller="EditProduct">
+                                                                    <a class="btn btn-info" id=@item.Id type="submit" asp-route-id="@item.Id" asp-action="Index" asp-controller="EditProduct">Edit</a>
+
+                                                                </form>
+                                                                  
+
+                                                            </td>
+                                                            <td aria-colindex="2" role="cell" class="">@item.Id</td>
+                                                            <td aria-colindex="2" role="cell" class="">@item.AsinCode</td>
+                                                            <td aria-colindex="3" role="cell" class="">@item.Name</td>
+                                                            <td aria-colindex="4" role="cell" class="">USA</td>
+                                                            <td aria-colindex="6" role="cell" class="">@item.TotalPrice</td>
+                                                            <td aria-colindex="7" role="cell" class="">@item.Weight</td>
+                                                            <td aria-colindex="8" role="cell" class="">@item.Height</td>
+                                                            <td aria-colindex="9" role="cell" class="">@item.ExpectedStockAmount</td>
+                                                            <td aria-colindex="10" role="cell" class="">@item.ExpectedTotalPrice$</td>
+                                                        </tr>
+                                                        }
+
+
+                                                    <!----><!---->
+                                                </tbody><!---->
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div data-v-0d352060="" id="8" class="card-code collapse" style="display: none;">
+                                        <div data-v-0d352060="" class="p-1"></div>
+                                        <pre data-v-0d352060=""
+                                         class=" language-markup"><code data-v-0d352060="" class=" language-markup"></code></pre>
+                                    </div>
+                                </div><!----><!---->
+                            </div>
+                            <div class="row">
+                                <div class="col-6" style="text-align: left;">
+                                   
+                                </div>
+                                <form asp-controller="NewShipmentFba" asp-action="Index" class="col-6"
+                                  style="text-align: right;">
+                                    <button type="submit" class="btn btn-success">
+                                        Gönderi Oluştur
+                                    </button>
+                                </form>
+                            </div>
+                        }
+                        <!----><!---->
+                    </div>
                 </div>
             </div>
+
+            <!--End Page header-->
+            <!--Row-->
+
+
         </div>
-
-        <!--End Page header-->
-        <!--Row-->
-
-
     </div>
-    </div>
-    
+
 </body>
 </html>
+<script>
+    function deleteProduct(productid) {
+        Swal.fire({
+
+            title: 'Are you sure?',
+            text: "Delete Product?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                
+                $.ajax({
+
+                    async: true,
+                    type: "Post",
+                    dataType: 'json',
+                    url: "http://localhost:5147/api/Product/DeleteProduct?productid=" + productid,
+                    beforeSend: function () {
+                    },
+                })
+                Swal.fire(
+                    'Oluşturuldu!',
+                    'Başarılı',
+                    'success'
+                );
+                setTimeout(() => {
+                    location.href = "/Inventory";
+                }, "1000")
+
+            }
+        });
+    };
+   
+</script>
